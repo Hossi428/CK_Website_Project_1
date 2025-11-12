@@ -79,7 +79,7 @@ export function Navigation() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
-      <div className="container flex h-40 items-center justify-between">
+      <div className="mx-auto max-w-[96rem] px-6 flex h-40 items-center justify-between">
         <Link href="/" className="flex flex-col items-center gap-2.5 px-6">
           <Image
             src="/ck-logo.png"
