@@ -6,10 +6,10 @@ import { Linkedin, Youtube } from 'lucide-react'
 export function Footer() {
   return (
     <footer className="bg-[#000000] text-[#F5F5F5]">
-      <div className="max-w-[96rem] mx-auto px-8 py-8">
+      <div className="max-w-[96rem] mx-auto px-12 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-center">
           {/* Left Section - Logo and Navigation */}
-          <div className="flex flex-col md:flex-row gap-4 items-start md:pr-6">
+          <div className="flex flex-col md:flex-row gap-4 items-start">
             {/* Logo Column */}
             <Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
               <div className="relative w-16 h-16">
@@ -115,7 +115,7 @@ export function Footer() {
           </div>
 
           {/* Right Section - RonaFM Badge */}
-          <div className="flex flex-col items-center justify-center py-4 md:py-0 md:pl-6">
+          <div className="flex flex-col items-center justify-center py-4 md:py-0">
             <a
               href="https://ronafm.es"
               target="_blank"
