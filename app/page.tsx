@@ -110,16 +110,6 @@ export default function HomePage() {
         {/* CK Knowledge Hub Section */}
         <KnowledgeHubSection />
       </main>
-
-      <footer className="bg-[#000000] py-6">
-        <div className="max-w-[96rem] mx-auto px-16 lg:px-20">
-          <div className="border-t border-[#2C2C2C] pt-4">
-            <p className="text-sm text-[#CFCFCF] text-center">
-              © 2026 CK® - Complete Krop. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

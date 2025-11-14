@@ -127,7 +127,7 @@ export function Footer() {
 
             {/* Copyright - Center */}
             <p className="text-sm text-[#CFCFCF] absolute left-1/2 -translate-x-1/2">
-              Copyright © 2026 CK. All rights reserved.
+              Copyright © 2026 CK® - Complete Krop. All rights reserved.
             </p>
 
             {/* Spacer for balance */}
