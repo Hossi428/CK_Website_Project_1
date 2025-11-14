@@ -6,10 +6,10 @@ import { Linkedin, Youtube } from 'lucide-react'
 export function Footer() {
   return (
     <footer className="bg-[#000000] text-[#F5F5F5]">
-      <div className="max-w-[96rem] mx-auto px-6 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
+      <div className="max-w-[96rem] mx-auto px-8 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
           {/* Left Section - Logo and Navigation */}
-          <div className="flex flex-col md:flex-row gap-4 items-start">
+          <div className="flex flex-col md:flex-row gap-4 items-start md:pr-6">
             {/* Logo Column */}
             <Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
               <div className="relative w-16 h-16">
@@ -102,8 +102,8 @@ export function Footer() {
           </div>
 
           {/* Center Section - Verification Message and Button */}
-          <div className="flex flex-col items-center justify-center gap-4 px-4 py-4 md:py-0">
-            <p className="text-base leading-relaxed text-center text-[#F5F5F5]">
+          <div className="flex flex-col items-center justify-center gap-4 px-6 py-4 md:py-0 text-center">
+            <p className="text-base leading-relaxed text-[#F5F5F5] max-w-md">
               Check the authenticity of your product easily: every CK® package comes with a unique QR code and
               verification code on the back.
             </p>
@@ -115,7 +115,7 @@ export function Footer() {
           </div>
 
           {/* Right Section - RonaFM Badge */}
-          <div className="flex flex-col items-center justify-center py-4 md:py-0">
+          <div className="flex flex-col items-center justify-center py-4 md:py-0 md:pl-6">
             <a
               href="https://ronafm.es"
               target="_blank"
