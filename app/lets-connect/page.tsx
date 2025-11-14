@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import Link from "next/link"
 
 export default function LetsConnectPage() {
@@ -124,6 +124,17 @@ export default function LetsConnectPage() {
                     >
                       info@c-k.es
                     </a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="bg-emerald-100 rounded-lg p-3">
+                    <Clock className="w-6 h-6 text-emerald-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-medium text-gray-500 mb-1">Opening Hours</h3>
+                    <p className="text-gray-900 font-medium">
+                      Monday to Friday / 9:00 to 15:00
+                    </p>
                   </div>
                 </div>
               </div>
