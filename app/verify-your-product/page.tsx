@@ -29,9 +29,9 @@ export default function VerifyProductPage() {
       <section className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-8 lg:px-16 text-center">
           <img 
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview-Fj1cllmgZA3R6KlLD9ZYVuFFjw7L8s.png" 
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-4uJPX9Vukvaseep0Wl6JrL3krmXWOX.jpg" 
             alt="Verification Icon" 
-            className="w-16 h-16 mx-auto mb-6"
+            className="w-16 h-16 mx-auto mb-6 mix-blend-lighten"
           />
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Your Trust, Our Guarantee: Verify Every Package</h1>
           <p className="text-xl md:text-2xl text-emerald-50 max-w-4xl mx-auto leading-relaxed">
