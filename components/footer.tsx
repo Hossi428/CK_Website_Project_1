@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="bg-[#000000] text-[#F5F5F5]">
       <div className="max-w-[96rem] mx-auto px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-center">
           {/* Left Section - Logo and Navigation */}
           <div className="flex flex-col md:flex-row gap-4 items-start md:pr-6">
             {/* Logo Column */}
