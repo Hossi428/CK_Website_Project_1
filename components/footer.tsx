@@ -6,19 +6,20 @@ import { Linkedin, Youtube } from 'lucide-react'
 export function Footer() {
   return (
     <footer className="bg-[#000000] text-[#F5F5F5]">
-      <div className="max-w-[96rem] mx-auto pl-8 pr-24 lg:pl-12 lg:pr-32 py-6">
+      <div className="max-w-[96rem] mx-auto px-16 lg:px-20 py-6">
         {/* Main Footer Content - Three Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
-          <div className="flex flex-col gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start mb-6">
+          {/* Left Column */}
+          <div className="flex flex-col gap-2">
             {/* Logo and Navigation Links in horizontal layout */}
-            <div className="flex items-start gap-6 mb-2">
+            <div className="flex items-start gap-6 mb-3">
               <Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
                 <div className="relative w-16 h-16">
                   <Image src="/ck-logo-white.png" alt="CK Logo" fill className="object-contain" />
                 </div>
               </Link>
               
-              <div className="flex flex-col gap-3 pt-1">
+              <div className="flex flex-col gap-2 pt-1">
                 <Link 
                   href="/the-ck-story/about-ck" 
                   className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors"
@@ -46,7 +47,7 @@ export function Footer() {
             </a>
             
             {/* Factory Address */}
-            <p className="font-semibold text-[#D4AF37] text-base leading-tight mt-2">Factory – Production Facility</p>
+            <p className="font-semibold text-[#D4AF37] text-base leading-tight mt-3">Factory – Production Facility</p>
             <a
               href="https://www.google.com/maps/search/?api=1&query=18240+Pinos+Puente,+Granada,+Spain"
               target="_blank"
@@ -83,12 +84,13 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="flex items-center justify-end pr-4">
+          {/* Right Column - RonaFM Logo */}
+          <div className="flex items-center justify-center">
             <a
               href="https://ronafm.es"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-40 h-32 hover:opacity-80 transition-opacity duration-200"
+              className="relative w-36 h-28 hover:opacity-80 transition-opacity duration-200"
               aria-label="RonaFM Distributor"
             >
               <Image src="/ronafm-badge.png" alt="RonaFM Distributor" fill className="object-contain" />
