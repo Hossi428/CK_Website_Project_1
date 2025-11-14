@@ -6,21 +6,21 @@ import { Linkedin, Youtube } from 'lucide-react'
 export function Footer() {
   return (
     <footer className="bg-[#000000] text-[#F5F5F5]">
-      <div className="max-w-[96rem] mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
+      <div className="max-w-[96rem] mx-auto px-6 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
           {/* Left Section - Logo and Navigation */}
-          <div className="flex flex-col md:flex-row gap-6 items-start pb-8 md:pb-0">
+          <div className="flex flex-col md:flex-row gap-4 items-start">
             {/* Logo Column */}
             <Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
-              <div className="relative w-20 h-20">
+              <div className="relative w-16 h-16">
                 <Image src="/ck-logo-white.png" alt="CK Logo" fill className="object-contain" />
               </div>
             </Link>
             
             {/* Content Column */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
               {/* Navigation Links */}
-              <nav className="flex flex-col gap-3 text-base">
+              <nav className="flex flex-col gap-2 text-base">
                 <Link 
                   href="/the-ck-story/about-ck" 
                   className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline underline-offset-4 transition-all duration-200"
@@ -36,9 +36,9 @@ export function Footer() {
               </nav>
               
               {/* Addresses */}
-              <div className="flex flex-col gap-4 text-base leading-relaxed">
+              <div className="flex flex-col gap-3 text-base leading-relaxed">
                 <div>
-                  <p className="font-semibold text-[#D4AF37] mb-2">Office – Headquarters</p>
+                  <p className="font-semibold text-[#D4AF37] mb-1">Office – Headquarters</p>
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=29649+Mijas,+Málaga,+Spain"
                     target="_blank"
@@ -49,18 +49,18 @@ export function Footer() {
                   </a>
                 </div>
                 <div>
-                  <p className="font-semibold text-[#D4AF37] mb-2">Factory – Production Facility</p>
+                  <p className="font-semibold text-[#D4AF37] mb-1">Factory – Production Facility</p>
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=18240+Pinos+Puente,+Granada,+Spain"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#CFCFCF] hover:text-[#E0E0E0] hover:underline underline-offset-4 transition-all duration-200 block mb-4"
+                    className="text-[#CFCFCF] hover:text-[#E0E0E0] hover:underline underline-offset-4 transition-all duration-200 block mb-3"
                   >
                     18240 Pinos Puente, Granada, Spain
                   </a>
                   
                   {/* Contact Info */}
-                  <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-[#2C2C2C]">
+                  <div className="flex flex-col gap-1.5 mt-3 pt-3 border-t border-[#2C2C2C]">
                     <a 
                       href="tel:+34952757255" 
                       className="text-[#CFCFCF] hover:text-[#E0E0E0] hover:underline underline-offset-4 transition-all duration-200"
@@ -78,7 +78,7 @@ export function Footer() {
               </div>
               
               {/* Social Media Icons */}
-              <div className="flex gap-3 mt-2">
+              <div className="flex gap-3 mt-1">
                 <a
                   href="https://www.linkedin.com"
                   target="_blank"
@@ -102,25 +102,25 @@ export function Footer() {
           </div>
 
           {/* Center Section - Verification Message and Button */}
-          <div className="flex flex-col items-center justify-center gap-6 px-4 py-8 md:py-0">
+          <div className="flex flex-col items-center justify-center gap-4 px-4 py-4 md:py-0">
             <p className="text-base leading-relaxed text-center text-[#F5F5F5]">
               Check the authenticity of your product easily: every CK® package comes with a unique QR code and
               verification code on the back.
             </p>
             <Link href="/verify-your-product">
-              <Button className="bg-[#D4AF37] hover:bg-[#E5C158] text-black font-semibold px-8 py-6 text-base transition-all duration-200 hover:scale-105">
+              <Button className="bg-[#D4AF37] hover:bg-[#E5C158] text-black font-semibold px-6 py-3 text-base transition-all duration-200 hover:scale-105">
                 Verify Your Product
               </Button>
             </Link>
           </div>
 
           {/* Right Section - RonaFM Badge */}
-          <div className="flex flex-col items-center justify-center py-8 md:py-0">
+          <div className="flex flex-col items-center justify-center py-4 md:py-0">
             <a
               href="https://ronafm.es"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-36 h-36 hover:opacity-80 transition-opacity duration-200"
+              className="relative w-28 h-28 hover:opacity-80 transition-opacity duration-200"
               aria-label="RonaFM Distributor"
             >
               <Image src="/ronafm-badge.png" alt="RonaFM Distributor" fill className="object-contain" />
@@ -130,7 +130,7 @@ export function Footer() {
       </div>
 
       {/* Copyright Strip */}
-      <div className="bg-[#000000] py-4 border-t border-[#2C2C2C]">
+      <div className="bg-[#000000] py-3 border-t border-[#2C2C2C]">
         <div className="max-w-[96rem] mx-auto px-6 text-center text-base text-[#CFCFCF]">
           Copyright © 2026 CK. All rights reserved.
         </div>
