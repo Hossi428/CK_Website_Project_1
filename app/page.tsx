@@ -112,8 +112,8 @@ export default function HomePage() {
       </main>
 
       <footer className="border-t bg-gray-50 py-12">
-        <div className="container text-center text-sm text-muted-foreground">
-          <p>© 2026 CK® - Complete Krop. All rights reserved.</p>
+        <div className="container text-center">
+          <p className="text-sm text-muted-foreground">© 2026 CK® - Complete Krop. All rights reserved.</p>
         </div>
       </footer>
     </div>
