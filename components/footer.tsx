@@ -35,41 +35,43 @@ export function Footer() {
               </div>
             </div>
             
-            {/* Office Address */}
-            <p className="font-semibold text-[#D4AF37] text-base leading-tight mt-1">Office – Headquarters</p>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=29649+Mijas,+Málaga,+Spain"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors"
-            >
-              29649 Mijas, Málaga, Spain
-            </a>
-            
-            {/* Factory Address */}
-            <p className="font-semibold text-[#D4AF37] text-base leading-tight mt-3">Factory – Production Facility</p>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=18240+Pinos+Puente,+Granada,+Spain"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors"
-            >
-              18240 Pinos Puente, Granada, Spain
-            </a>
-            
-            {/* Contact Details */}
-            <a 
-              href="tel:+34952757255" 
-              className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors mt-3"
-            >
-              +34 952 757 255
-            </a>
-            <a 
-              href="mailto:info@c-k.es" 
-              className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors"
-            >
-              info@c-k.es
-            </a>
+            <div className="ml-[88px]">
+              {/* Office Address */}
+              <p className="font-semibold text-[#D4AF37] text-base leading-tight mt-1">Office – Headquarters</p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=29649+Mijas,+Málaga,+Spain"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors"
+              >
+                29649 Mijas, Málaga, Spain
+              </a>
+              
+              {/* Factory Address */}
+              <p className="font-semibold text-[#D4AF37] text-base leading-tight mt-3">Factory – Production Facility</p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=18240+Pinos+Puente,+Granada,+Spain"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors"
+              >
+                18240 Pinos Puente, Granada, Spain
+              </a>
+              
+              {/* Contact Details */}
+              <a 
+                href="tel:+34952757255" 
+                className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors mt-3 block"
+              >
+                +34 952 757 255
+              </a>
+              <a 
+                href="mailto:info@c-k.es" 
+                className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors block"
+              >
+                info@c-k.es
+              </a>
+            </div>
           </div>
 
           {/* Center Column - Verification */}
