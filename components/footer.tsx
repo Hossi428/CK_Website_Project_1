@@ -7,71 +7,76 @@ export function Footer() {
   return (
     <footer className="bg-black text-white">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* Left Section - Logo and Navigation */}
-          <div className="flex flex-col items-center md:items-start gap-4">
-            <Link href="/" className="flex items-center">
+          <div className="flex gap-6 items-start">
+            {/* Logo Column */}
+            <Link href="/" className="flex-shrink-0">
               <div className="relative w-20 h-20">
                 <Image src="/ck-logo-white.png" alt="CK Logo" fill className="object-contain" />
               </div>
             </Link>
-            <nav className="flex flex-col gap-2 text-sm">
-              <Link href="/the-ck-story/about-ck" className="hover:text-emerald-400 transition-colors">
-                About Us
-              </Link>
-              <Link href="/the-ck-story/work-with-us" className="hover:text-emerald-400 transition-colors">
-                Work With Us
-              </Link>
-            </nav>
-            <div className="flex flex-col gap-3 text-sm">
-              <div>
-                <p className="font-semibold text-emerald-400 mb-1">Office – Headquarters</p>
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=29649+Mijas,+Málaga,+Spain"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition-colors"
-                >
-                  29649 Mijas, Málaga, Spain
-                </a>
-              </div>
-              <div>
-                <p className="font-semibold text-emerald-400 mb-1">Factory – Production Facility</p>
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=18240+Pinos+Puente,+Granada,+Spain"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition-colors block mb-3"
-                >
-                  18240 Pinos Puente, Granada, Spain
-                </a>
-                <div className="flex flex-col gap-1 mt-2">
-                  <a href="tel:+34952757255" className="hover:text-emerald-400 transition-colors">
-                    +34 952 757 255
-                  </a>
-                  <a href="mailto:info@c-k.es" className="hover:text-emerald-400 transition-colors">
-                    info@c-k.es
+            
+            {/* Content Column */}
+            <div className="flex flex-col gap-4">
+              <nav className="flex flex-col gap-2 text-sm">
+                <Link href="/the-ck-story/about-ck" className="hover:text-emerald-400 transition-colors">
+                  About Us
+                </Link>
+                <Link href="/the-ck-story/work-with-us" className="hover:text-emerald-400 transition-colors">
+                  Work With Us
+                </Link>
+              </nav>
+              <div className="flex flex-col gap-3 text-sm">
+                <div>
+                  <p className="font-semibold text-emerald-400 mb-1">Office – Headquarters</p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=29649+Mijas,+Málaga,+Spain"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-emerald-400 transition-colors"
+                  >
+                    29649 Mijas, Málaga, Spain
                   </a>
                 </div>
+                <div>
+                  <p className="font-semibold text-emerald-400 mb-1">Factory – Production Facility</p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=18240+Pinos+Puente,+Granada,+Spain"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-emerald-400 transition-colors block mb-3"
+                  >
+                    18240 Pinos Puente, Granada, Spain
+                  </a>
+                  <div className="flex flex-col gap-1 mt-2">
+                    <a href="tel:+34952757255" className="hover:text-emerald-400 transition-colors">
+                      +34 952 757 255
+                    </a>
+                    <a href="mailto:info@c-k.es" className="hover:text-emerald-400 transition-colors">
+                      info@c-k.es
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2">
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 bg-yellow-400 rounded flex items-center justify-center hover:bg-yellow-500 transition-colors"
-              >
-                <Linkedin className="w-5 h-5 text-black" />
-              </a>
-              <a
-                href="https://www.youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 bg-yellow-400 rounded flex items-center justify-center hover:bg-yellow-500 transition-colors"
-              >
-                <Youtube className="w-5 h-5 text-black" />
-              </a>
+              <div className="flex gap-2">
+                <a
+                  href="https://www.linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-yellow-400 rounded flex items-center justify-center hover:bg-yellow-500 transition-colors"
+                >
+                  <Linkedin className="w-5 h-5 text-black" />
+                </a>
+                <a
+                  href="https://www.youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-yellow-400 rounded flex items-center justify-center hover:bg-yellow-500 transition-colors"
+                >
+                  <Youtube className="w-5 h-5 text-black" />
+                </a>
+              </div>
             </div>
           </div>
 
