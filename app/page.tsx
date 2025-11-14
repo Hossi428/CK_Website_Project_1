@@ -2,7 +2,7 @@ import { HeroCarousel } from "@/components/hero-carousel"
 import { KnowledgeHubSection } from "@/components/knowledge-hub-section"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowRight, Leaf, Sprout, Shield } from "lucide-react"
+import { ArrowRight, Leaf, Sprout, Shield } from 'lucide-react'
 
 export default function HomePage() {
   return (
@@ -15,7 +15,7 @@ export default function HomePage() {
           <div className="container relative z-10 text-white px-8 lg:px-16">
             <div className="max-w-4xl space-y-8">
               <p className="text-base md:text-lg font-medium uppercase tracking-wider text-emerald-400">
-                CK® Your partner in smarter & tailored crop solutions
+                Your partner in smarter & tailored crop solutions
               </p>
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-light leading-tight text-balance">
                 Change for Healthy Farming
@@ -113,7 +113,7 @@ export default function HomePage() {
 
       <footer className="border-t bg-gray-50 py-12">
         <div className="container text-center text-sm text-muted-foreground">
-          <p>© 2025 CK® - Complete Krop. All rights reserved.</p>
+          <p>© 2026 CK® - Complete Krop. All rights reserved.</p>
         </div>
       </footer>
     </div>

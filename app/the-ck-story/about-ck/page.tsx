@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { Building2, Users, Globe, Award } from "lucide-react"
+import { Building2, Users, Globe, Award } from 'lucide-react'
 
 export default function AboutCKPage() {
   return (
@@ -24,7 +24,7 @@ export default function AboutCKPage() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Who We Are</h2>
               <p className="text-gray-700 mb-4">
-                CK® - Complete Krop is a proud division of Nevian Fertilizantes S.L., a company with over 18 years of
+                CK® - Complete Krop is a proud division of <strong>Nevian Fertilizantes S.L.</strong>, a company with over 18 years of
                 excellence in fertilizer manufacturing and agronomic innovation, headquartered in Puente, Granada,
                 Southern Spain.
               </p>

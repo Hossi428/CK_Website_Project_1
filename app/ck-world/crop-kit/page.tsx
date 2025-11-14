@@ -1,8 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft } from 'lucide-react'
 import Link from "next/link"
+import Image from "next/image"
 
 const products = [
   "SRP Eco",
@@ -46,21 +47,33 @@ export default function CropKitPage() {
           </Button>
         </Link>
 
-        {/* Page Header */}
-        <div className="mb-12 space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-violet-700">Crop Kit™</h1>
-          <p className="text-xl text-violet-600 font-medium">Integrated Solutions for Crop Performance</p>
-          <p className="text-muted-foreground leading-relaxed max-w-4xl text-pretty">
-            Welcome to CK® Crop Kit™ – Integrated Solutions for Crop Performance. At CK®, we know that successful
-            cultivation depends on more than just individual products - it requires smart integration, precision, and
-            adaptability. That's why we proudly introduce CK® Crop Kit™, a comprehensive line of synergistic input
-            solutions, including single elements (Ca, Mg, Zn, etc.) and micronutrient formulations, designed to work
-            together throughout the entire crop cycle. From soil preparation and seedling establishment to vegetative
-            growth and fruiting, each Crop Kit™ provides tailored nutrient programs that simplify decision-making and
-            maximize crop productivity. Whether you're managing open-field agriculture or high-tech greenhouses, CK®
-            Crop Kit™ delivers practical, easy-to-apply solutions backed by agronomic expertise and field-proven
-            results. Unlock the full potential of your crops - kit by kit.
-          </p>
+        {/* Page Header - Updated to two-column layout with image on right */}
+        <div className="mb-12 flex flex-col lg:flex-row gap-8 items-center">
+          <div className="flex-1 space-y-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-violet-700">Crop Kit™</h1>
+            <p className="text-xl text-violet-600 font-medium">Integrated Solutions for Crop Performance</p>
+            <p className="text-muted-foreground leading-relaxed text-pretty">
+              Welcome to CK® Crop Kit™ – Integrated Solutions for Crop Performance. At CK®, we know that successful
+              cultivation depends on more than just individual products - it requires smart integration, precision, and
+              adaptability. That's why we proudly introduce CK® Crop Kit™, a comprehensive line of synergistic input
+              solutions, including single elements (Ca, Mg, Zn, etc.) and micronutrient formulations, designed to work
+              together throughout the entire crop cycle. From soil preparation and seedling establishment to vegetative
+              growth and fruiting, each Crop Kit™ provides tailored nutrient programs that simplify decision-making and
+              maximize crop productivity. Whether you're managing open-field agriculture or high-tech greenhouses, CK®
+              Crop Kit™ delivers practical, easy-to-apply solutions backed by agronomic expertise and field-proven
+              results. Unlock the full potential of your crops - kit by kit.
+            </p>
+          </div>
+          <div className="flex-1 w-full">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Crop%20Kit%E2%84%A2-9VrwAkXXA3qYQfFNZToZ73puinh183.png"
+              alt="Crop Kit - Earth globe with moss and vegetation"
+              width={800}
+              height={533}
+              className="rounded-lg shadow-xl w-full h-auto"
+              priority
+            />
+          </div>
         </div>
 
         {/* Products */}

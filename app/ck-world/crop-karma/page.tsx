@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft } from 'lucide-react'
 import Link from "next/link"
 import Image from "next/image"
 
@@ -46,6 +46,7 @@ export default function CropKarmaPage() {
 
         {/* Page Header */}
         <div className="mb-12 flex flex-col lg:flex-row gap-8 items-start">
+          {/* Left column: Title and description */}
           <div className="flex-1 space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold text-amber-700">Crop Karma™</h1>
             <p className="text-xl text-amber-600 font-medium">Rebuilding Soil, Rooting the Future</p>
@@ -62,14 +63,13 @@ export default function CropKarmaPage() {
               application, you are not only feeding the soil - you are activating its full potential for years to come.
             </p>
           </div>
-          <div className="lg:w-[500px] xl:w-[600px] flex-shrink-0">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Crop%20Karma%E2%84%A2-pCLB9n1oDstZyfMzKOjdAuIJK8j3Yx.jpg"
-              alt="Crop Karma - Earth in Soil"
-              width={600}
-              height={800}
-              className="w-full h-auto rounded-lg shadow-xl"
-              priority
+
+          {/* Right column: Larger image */}
+          <div className="flex-shrink-0 lg:w-[500px] xl:w-[600px]">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Crop%20Karma%E2%84%A2-YDGxNs9nAjbAdSO0geUA5ksJMExsPs.png"
+              alt="Earth globe in soil with growing plants representing sustainable agriculture"
+              className="rounded-lg shadow-2xl w-full h-auto object-cover"
             />
           </div>
         </div>

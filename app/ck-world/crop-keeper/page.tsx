@@ -3,7 +3,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft } from 'lucide-react'
+import Image from "next/image"
 
 const families = [
   {
@@ -52,20 +53,32 @@ export default function CropKeeperPage() {
         </Link>
 
         {/* Page Header */}
-        <div className="mb-12 space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-red-700">Crop Keeper™</h1>
-          <p className="text-xl text-red-600 font-medium">
-            Your Trusted Partner in Crop Protection and Stress Management
-          </p>
-          <p className="text-muted-foreground leading-relaxed max-w-4xl text-pretty">
-            Welcome to CK® Crop Keeper™ - Your Trusted Partner in Crop Protection and Stress Management. At CK® Crop
-            Keeper™, we understand that healthy crops are the foundation of successful agriculture. Our Crop Keeper™
-            product line is specially designed to support plant resilience and protect your harvest from biotic and
-            abiotic stresses. Featuring innovative solutions, Crop Keeper™ enhances plant defense mechanisms, promotes
-            stress tolerance, and helps safeguard yield quality in challenging environments. Whether you're battling
-            diseases, environmental stress, or nutrient imbalances, Crop Keeper™ provides reliable, science-backed tools
-            to keep your crops strong and productive from seedling to harvest.
-          </p>
+        <div className="mb-12 flex flex-col lg:flex-row gap-8 items-start">
+          <div className="space-y-4 flex-1">
+            <h1 className="text-4xl md:text-5xl font-bold text-red-700">Crop Keeper™</h1>
+            <p className="text-xl text-red-600 font-medium">
+              Your Trusted Partner in Crop Protection and Stress Management
+            </p>
+            <p className="text-muted-foreground leading-relaxed text-pretty">
+              Welcome to CK® Crop Keeper™ - Your Trusted Partner in Crop Protection and Stress Management. At CK® Crop
+              Keeper™, we understand that healthy crops are the foundation of successful agriculture. Our Crop Keeper™
+              product line is specially designed to support plant resilience and protect your harvest from biotic and
+              abiotic stresses. Featuring innovative solutions, Crop Keeper™ enhances plant defense mechanisms, promotes
+              stress tolerance, and helps safeguard yield quality in challenging environments. Whether you're battling
+              diseases, environmental stress, or nutrient imbalances, Crop Keeper™ provides reliable, science-backed tools
+              to keep your crops strong and productive from seedling to harvest.
+            </p>
+          </div>
+          <div className="flex-1 lg:max-w-xl">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Crop%20Keeper%E2%84%A2-6SmV3sj8srtMUAfBtyHtP0oueUNPVR.jpg"
+              alt="Crop Keeper - Globe covered in moss representing environmental stewardship"
+              width={800}
+              height={533}
+              className="rounded-lg shadow-lg w-full h-auto"
+              priority
+            />
+          </div>
         </div>
 
         {/* Product Families Tabs */}
