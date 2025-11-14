@@ -119,8 +119,8 @@ export default function CKWorldPage() {
 
         {/* Product Lines Grid */}
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-            {/* First 3 items - Top row */}
+          {/* First row - 3 boxes */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 mb-8">
             {productLines.slice(0, 3).map((line) => (
               <Card
                 key={line.id}
@@ -169,11 +169,13 @@ export default function CKWorldPage() {
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-8 mt-8 justify-center lg:px-[calc((100%/3)/2)]">
+          {/* Second row - 2 boxes centered with same size as top row */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            <div className="hidden lg:block" />
             {productLines.slice(3, 5).map((line) => (
               <Card
                 key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(100%/3-1rem)] flex flex-col`}
+                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full flex flex-col`}
               >
                 <CardHeader>
                   {line.icon && (
