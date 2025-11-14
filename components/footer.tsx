@@ -6,7 +6,7 @@ import { Linkedin, Youtube } from 'lucide-react'
 export function Footer() {
   return (
     <footer className="bg-[#000000] text-[#F5F5F5]">
-      <div className="max-w-[96rem] mx-auto px-12 py-6">
+      <div className="max-w-[96rem] mx-auto px-16 lg:px-20 py-6">
         {/* Main Footer Content - Three Columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-6">
           <div className="flex flex-col gap-3">
