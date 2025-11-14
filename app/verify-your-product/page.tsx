@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle, ShieldCheck, Package, Scan } from "lucide-react"
+import { CheckCircle, Package, Scan } from 'lucide-react'
 
 export default function VerifyProductPage() {
   const [email, setEmail] = useState("")
@@ -28,7 +28,11 @@ export default function VerifyProductPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-8 lg:px-16 text-center">
-          <ShieldCheck className="w-16 h-16 mx-auto mb-6" />
+          <img 
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview-Fj1cllmgZA3R6KlLD9ZYVuFFjw7L8s.png" 
+            alt="Verification Icon" 
+            className="w-16 h-16 mx-auto mb-6"
+          />
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Your Trust, Our Guarantee: Verify Every Package</h1>
           <p className="text-xl md:text-2xl text-emerald-50 max-w-4xl mx-auto leading-relaxed">
             At CK®, we go beyond delivering fertilizers—we deliver peace of mind. Each package you purchase comes with a
