@@ -169,13 +169,11 @@ export default function CKWorldPage() {
             ))}
           </div>
 
-          {/* Second row - 2 boxes centered with same size as top row */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-            <div className="hidden lg:block" />
+          <div className="flex justify-center gap-8 flex-wrap">
             {productLines.slice(3, 5).map((line) => (
               <Card
                 key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full flex flex-col`}
+                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] flex flex-col`}
               >
                 <CardHeader>
                   {line.icon && (
