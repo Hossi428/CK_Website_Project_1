@@ -6,33 +6,36 @@ import { Linkedin, Youtube } from 'lucide-react'
 export function Footer() {
   return (
     <footer className="bg-[#000000] text-[#F5F5F5]">
-      <div className="max-w-[96rem] mx-auto px-16 lg:px-20 py-6">
+      <div className="max-w-[96rem] mx-auto pl-8 pr-24 lg:pl-12 lg:pr-32 py-6">
         {/* Main Footer Content - Three Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
           <div className="flex flex-col gap-3">
-            {/* Logo */}
-            <Link href="/" className="mb-2 hover:opacity-80 transition-opacity">
-              <div className="relative w-16 h-16">
-                <Image src="/ck-logo-white.png" alt="CK Logo" fill className="object-contain" />
+            {/* Logo and Navigation Links in horizontal layout */}
+            <div className="flex items-start gap-6 mb-2">
+              <Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
+                <div className="relative w-16 h-16">
+                  <Image src="/ck-logo-white.png" alt="CK Logo" fill className="object-contain" />
+                </div>
+              </Link>
+              
+              <div className="flex flex-col gap-3 pt-1">
+                <Link 
+                  href="/the-ck-story/about-ck" 
+                  className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors"
+                >
+                  About Us
+                </Link>
+                <Link 
+                  href="/the-ck-story/work-with-us" 
+                  className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors"
+                >
+                  Work With Us
+                </Link>
               </div>
-            </Link>
-            
-            {/* Navigation Links */}
-            <Link 
-              href="/the-ck-story/about-ck" 
-              className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors"
-            >
-              About Us
-            </Link>
-            <Link 
-              href="/the-ck-story/work-with-us" 
-              className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline text-base leading-tight transition-colors"
-            >
-              Work With Us
-            </Link>
+            </div>
             
             {/* Office Address */}
-            <p className="font-semibold text-[#D4AF37] text-base leading-tight mt-2">Office – Headquarters</p>
+            <p className="font-semibold text-[#D4AF37] text-base leading-tight mt-1">Office – Headquarters</p>
             <a
               href="https://www.google.com/maps/search/?api=1&query=29649+Mijas,+Málaga,+Spain"
               target="_blank"
@@ -68,6 +71,7 @@ export function Footer() {
             </a>
           </div>
 
+          {/* Center Column - Verification */}
           <div className="flex flex-col items-center justify-center text-center gap-4">
             <p className="text-base leading-relaxed text-[#F5F5F5] max-w-md">
               Check the authenticity of your product easily: every CK® package comes with a unique QR code and verification code on the back.
@@ -79,7 +83,7 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-end pr-4">
             <a
               href="https://ronafm.es"
               target="_blank"
