@@ -5,66 +5,86 @@ import { Linkedin, Youtube } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white">
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+    <footer className="bg-[#000000] text-[#F5F5F5]">
+      <div className="max-w-[96rem] mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
           {/* Left Section - Logo and Navigation */}
-          <div className="flex gap-6 items-start">
+          <div className="flex flex-col md:flex-row gap-6 items-start pb-8 md:pb-0 border-b md:border-b-0 md:border-r border-[#2C2C2C] md:pr-8">
             {/* Logo Column */}
-            <Link href="/" className="flex-shrink-0">
+            <Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
               <div className="relative w-20 h-20">
                 <Image src="/ck-logo-white.png" alt="CK Logo" fill className="object-contain" />
               </div>
             </Link>
             
             {/* Content Column */}
-            <div className="flex flex-col gap-4">
-              <nav className="flex flex-col gap-2 text-sm">
-                <Link href="/the-ck-story/about-ck" className="hover:text-emerald-400 transition-colors">
+            <div className="flex flex-col gap-6">
+              {/* Navigation Links */}
+              <nav className="flex flex-col gap-3 text-base">
+                <Link 
+                  href="/the-ck-story/about-ck" 
+                  className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline underline-offset-4 transition-all duration-200"
+                >
                   About Us
                 </Link>
-                <Link href="/the-ck-story/work-with-us" className="hover:text-emerald-400 transition-colors">
+                <Link 
+                  href="/the-ck-story/work-with-us" 
+                  className="text-[#CFCFCF] hover:text-[#FFFFFF] hover:underline underline-offset-4 transition-all duration-200"
+                >
                   Work With Us
                 </Link>
               </nav>
-              <div className="flex flex-col gap-3 text-sm">
+              
+              {/* Addresses */}
+              <div className="flex flex-col gap-4 text-base leading-relaxed">
                 <div>
-                  <p className="font-semibold text-emerald-400 mb-1">Office – Headquarters</p>
+                  <p className="font-semibold text-[#D4AF37] mb-2">Office – Headquarters</p>
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=29649+Mijas,+Málaga,+Spain"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-emerald-400 transition-colors"
+                    className="text-[#CFCFCF] hover:text-[#E0E0E0] hover:underline underline-offset-4 transition-all duration-200"
                   >
                     29649 Mijas, Málaga, Spain
                   </a>
                 </div>
                 <div>
-                  <p className="font-semibold text-emerald-400 mb-1">Factory – Production Facility</p>
+                  <p className="font-semibold text-[#D4AF37] mb-2">Factory – Production Facility</p>
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=18240+Pinos+Puente,+Granada,+Spain"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-emerald-400 transition-colors block mb-3"
+                    className="text-[#CFCFCF] hover:text-[#E0E0E0] hover:underline underline-offset-4 transition-all duration-200 block mb-4"
                   >
                     18240 Pinos Puente, Granada, Spain
                   </a>
-                  <div className="flex flex-col gap-1 mt-2">
-                    <a href="tel:+34952757255" className="hover:text-emerald-400 transition-colors">
+                  
+                  {/* Contact Info */}
+                  <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-[#2C2C2C]">
+                    <a 
+                      href="tel:+34952757255" 
+                      className="text-[#CFCFCF] hover:text-[#E0E0E0] hover:underline underline-offset-4 transition-all duration-200"
+                    >
                       +34 952 757 255
                     </a>
-                    <a href="mailto:info@c-k.es" className="hover:text-emerald-400 transition-colors">
+                    <a 
+                      href="mailto:info@c-k.es" 
+                      className="text-[#CFCFCF] hover:text-[#E0E0E0] hover:underline underline-offset-4 transition-all duration-200"
+                    >
                       info@c-k.es
                     </a>
                   </div>
                 </div>
               </div>
-              <div className="flex gap-2">
+              
+              {/* Social Media Icons */}
+              <div className="flex gap-3 mt-2">
                 <a
                   href="https://www.linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 bg-yellow-400 rounded flex items-center justify-center hover:bg-yellow-500 transition-colors"
+                  className="w-10 h-10 bg-[#D4AF37] rounded-md flex items-center justify-center hover:bg-[#E5C158] transition-all duration-200 hover:scale-105"
+                  aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5 text-black" />
                 </a>
@@ -72,7 +92,8 @@ export function Footer() {
                   href="https://www.youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 bg-yellow-400 rounded flex items-center justify-center hover:bg-yellow-500 transition-colors"
+                  className="w-10 h-10 bg-[#D4AF37] rounded-md flex items-center justify-center hover:bg-[#E5C158] transition-all duration-200 hover:scale-105"
+                  aria-label="YouTube"
                 >
                   <Youtube className="w-5 h-5 text-black" />
                 </a>
@@ -81,25 +102,26 @@ export function Footer() {
           </div>
 
           {/* Center Section - Verification Message and Button */}
-          <div className="flex flex-col items-center gap-4 px-4">
-            <p className="text-base leading-relaxed text-center">
+          <div className="flex flex-col items-center justify-center gap-6 px-4 py-8 md:py-0 border-b md:border-b-0 md:border-r border-[#2C2C2C] md:px-8">
+            <p className="text-base leading-relaxed text-center text-[#F5F5F5]">
               Check the authenticity of your product easily: every CK® package comes with a unique QR code and
               verification code on the back.
             </p>
             <Link href="/verify-your-product">
-              <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6">
+              <Button className="bg-[#D4AF37] hover:bg-[#E5C158] text-black font-semibold px-8 py-6 text-base transition-all duration-200 hover:scale-105">
                 Verify Your Product
               </Button>
             </Link>
           </div>
 
-          {/* Right Section - Badge Only */}
-          <div className="flex flex-col items-center md:items-end">
+          {/* Right Section - RonaFM Badge */}
+          <div className="flex flex-col items-center md:items-end justify-center py-8 md:py-0">
             <a
               href="https://ronafm.es"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-32 h-32 hover:opacity-80 transition-opacity"
+              className="relative w-36 h-36 hover:opacity-80 transition-opacity duration-200"
+              aria-label="RonaFM Distributor"
             >
               <Image src="/ronafm-badge.png" alt="RonaFM Distributor" fill className="object-contain" />
             </a>
@@ -108,8 +130,10 @@ export function Footer() {
       </div>
 
       {/* Copyright Strip */}
-      <div className="bg-black py-3">
-        <div className="container mx-auto px-4 text-center text-sm">Copyright © 2026 CK. All rights reserved.</div>
+      <div className="bg-[#000000] py-4 border-t border-[#2C2C2C]">
+        <div className="max-w-[96rem] mx-auto px-6 text-center text-base text-[#CFCFCF]">
+          Copyright © 2026 CK. All rights reserved.
+        </div>
       </div>
     </footer>
   )
