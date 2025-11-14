@@ -9,7 +9,7 @@ export function Footer() {
       <div className="max-w-[96rem] mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
           {/* Left Section - Logo and Navigation */}
-          <div className="flex flex-col md:flex-row gap-6 items-start pb-8 md:pb-0 border-b md:border-b-0 md:border-r border-[#2C2C2C] md:pr-8">
+          <div className="flex flex-col md:flex-row gap-6 items-start pb-8 md:pb-0">
             {/* Logo Column */}
             <Link href="/" className="flex-shrink-0 hover:opacity-80 transition-opacity">
               <div className="relative w-20 h-20">
@@ -102,7 +102,7 @@ export function Footer() {
           </div>
 
           {/* Center Section - Verification Message and Button */}
-          <div className="flex flex-col items-center justify-center gap-6 px-4 py-8 md:py-0 border-b md:border-b-0 md:border-r border-[#2C2C2C] md:px-8">
+          <div className="flex flex-col items-center justify-center gap-6 px-4 py-8 md:py-0">
             <p className="text-base leading-relaxed text-center text-[#F5F5F5]">
               Check the authenticity of your product easily: every CK® package comes with a unique QR code and
               verification code on the back.
@@ -115,7 +115,7 @@ export function Footer() {
           </div>
 
           {/* Right Section - RonaFM Badge */}
-          <div className="flex flex-col items-center md:items-end justify-center py-8 md:py-0">
+          <div className="flex flex-col items-center justify-center py-8 md:py-0">
             <a
               href="https://ronafm.es"
               target="_blank"
