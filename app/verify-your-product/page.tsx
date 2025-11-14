@@ -31,7 +31,7 @@ export default function VerifyProductPage() {
           <img 
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-4uJPX9Vukvaseep0Wl6JrL3krmXWOX.jpg" 
             alt="Verification Icon" 
-            className="w-16 h-16 mx-auto mb-6 mix-blend-lighten"
+            className="w-16 h-16 mx-auto mb-6 mix-blend-lighten brightness-200 invert"
           />
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Your Trust, Our Guarantee: Verify Every Package</h1>
           <p className="text-xl md:text-2xl text-emerald-50 max-w-4xl mx-auto leading-relaxed">
