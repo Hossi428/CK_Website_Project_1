@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight } from 'lucide-react'
 import Image from "next/image"
 
 const productLines = [
@@ -118,13 +118,13 @@ export default function CKWorldPage() {
         <Separator className="mb-16" />
 
         {/* Product Lines Grid */}
-        <div className="max-w-7xl mx-auto">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 justify-items-center">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {/* First 3 items - Top row */}
             {productLines.slice(0, 3).map((line) => (
               <Card
                 key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full max-w-md flex flex-col`}
+                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full flex flex-col`}
               >
                 <CardHeader>
                   {line.icon && (
@@ -169,11 +169,11 @@ export default function CKWorldPage() {
             ))}
           </div>
 
-          <div className="flex justify-center gap-8 mt-8 flex-wrap">
+          <div className="flex flex-wrap gap-8 mt-8 justify-center lg:px-[calc((100%/3)/2)]">
             {productLines.slice(3, 5).map((line) => (
               <Card
                 key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full max-w-md flex flex-col`}
+                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(100%/3-1rem)] flex flex-col`}
               >
                 <CardHeader>
                   {line.icon && (
