@@ -8,7 +8,7 @@ import { useState, useRef, useEffect } from "react"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu"
 import { CKWorldMegaMenu } from "@/components/ck-world-mega-menu"
 import { productLines } from "@/data/product-lines"
-import { ArrowRight, ChevronDown } from 'lucide-react'
+import { ArrowRight, ChevronDown, Search } from 'lucide-react'
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -182,13 +182,16 @@ export function Navigation() {
             Let's Connect
           </Link>
 
-          <Link
-            href="/verify-your-product"
-            className="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 px-6 py-2.5 rounded transition-colors flex items-center gap-2"
-          >
-            Verify Your Product
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="flex flex-col items-center gap-1">
+            <Search className="h-5 w-5 text-orange-500" />
+            <Link
+              href="/verify-your-product"
+              className="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 px-6 py-2.5 rounded transition-colors flex items-center gap-2"
+            >
+              Verify Your Product
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </nav>
 
         <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
@@ -277,13 +280,17 @@ export function Navigation() {
             <Link href="/lets-connect" className="text-sm font-medium hover:text-emerald-600 transition-colors">
               Let's Connect
             </Link>
-            <Link
-              href="/verify-your-product"
-              className="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 px-6 py-2.5 rounded transition-colors flex items-center gap-2"
-            >
-              Verify Your Product
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+
+            <div className="flex flex-col items-start gap-1">
+              <Search className="h-5 w-5 text-orange-500 ml-6" />
+              <Link
+                href="/verify-your-product"
+                className="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 px-6 py-2.5 rounded transition-colors flex items-center gap-2"
+              >
+                Verify Your Product
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </nav>
         </div>
       )}

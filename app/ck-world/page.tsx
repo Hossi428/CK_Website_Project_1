@@ -118,8 +118,8 @@ export default function CKWorldPage() {
         <Separator className="mb-16" />
 
         {/* Product Lines Grid */}
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-items-center place-items-center">
             {productLines.map((line, index) => (
               <Card
                 key={line.id}
