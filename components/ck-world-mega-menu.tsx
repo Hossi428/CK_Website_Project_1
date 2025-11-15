@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ChevronRight, Check } from "lucide-react"
+import { ChevronRight, Check } from 'lucide-react'
 import { NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu"
 
 const productLinesData = {
@@ -377,15 +377,21 @@ export function CKWorldMegaMenu() {
                         Products ({family.products.length})
                       </h4>
                       <div className="space-y-1.5 max-h-[400px] overflow-y-auto pr-2">
-                        {family.products.map((product, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center gap-2 rounded-md bg-white border border-slate-200 px-3 py-2.5 text-sm text-slate-700 hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-700 transition-all cursor-pointer group"
-                          >
-                            <Check className="h-4 w-4 text-emerald-500 flex-shrink-0 group-hover:text-emerald-600" />
-                            <span className="flex-1">{product}</span>
-                          </div>
-                        ))}
+                        {family.products.map((product, idx) => {
+                          const productSlug = product.toLowerCase().replace(/[™®]/g, '').replace(/\s+/g, '-')
+                          const productHref = `${currentLine.href}/${family.name.toLowerCase().replace(/\s+family/i, '').replace(/\s+/g, '-')}/${productSlug}`
+                          
+                          return (
+                            <Link
+                              key={idx}
+                              href={productHref}
+                              className="flex items-center gap-2 rounded-md bg-white border border-slate-200 px-3 py-2.5 text-sm text-slate-700 hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-700 transition-all cursor-pointer group"
+                            >
+                              <Check className="h-4 w-4 text-emerald-500 flex-shrink-0 group-hover:text-emerald-600" />
+                              <span className="flex-1">{product}</span>
+                            </Link>
+                          )
+                        })}
                       </div>
                     </div>
 
