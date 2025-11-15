@@ -35,13 +35,11 @@ export default function SSPProductPage() {
 
               <div className="bg-yellow-200 p-6 rounded-lg">
                 <p className="text-foreground leading-relaxed">
-                  <strong>CK® Crystal Krop ™ SSP</strong> (Single Super Phosphate) is a traditional phosphorus fertilizer
-                  that also supplies calcium and sulfur. It is highly effective in acidic soils and supports strong root
-                  development, better flowering, and improved fruit set.
+                  <strong>CK® Crystal Krop™ SSP</strong> is a high-quality solid Single Superphosphate fertilizer formulated for soil application. With phosphorus pentoxide (P₂O₅) highly soluble in mineral acids and water, calcium oxide (CaO) to support soil structure, and sulfur trioxide (SO₃) to enhance protein synthesis and enzymatic activity, it provides a complete foundation for robust crop growth. The formulation can be supplied in powdery form for rapid dissolution or processed into uniform granules for precision soil application, making it versatile across different crop management systems.
                 </p>
               </div>
 
-              <Link href="#" className="inline-block">
+              <Link href="/ck-world/crystal-krop/pre-planting/ssp/flyer" className="inline-block">
                 <Button
                   variant="outline"
                   className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 hover:text-orange-700 px-8 py-6 text-base font-semibold"

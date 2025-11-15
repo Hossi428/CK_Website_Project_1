@@ -35,13 +35,11 @@ export default function AMSGrProductPage() {
 
               <div className="bg-yellow-200 p-6 rounded-lg">
                 <p className="text-foreground leading-relaxed">
-                  <strong>CK® Crystal Krop ™ AMS Gr</strong> (Granular Ammonium Sulfate) combines the benefits of
-                  nitrogen and sulfur in a granular form for easy broadcast application. It ensures uniform nutrient
-                  distribution and sustained nutrient release for improved crop performance.
+                  <strong>CK® Crystal Krop™ AMS Gr™</strong> is a high-purity granular ammonium sulfate fertilizer designed for both soil application and fertigation. Delivering nitrogen entirely in the ammoniacal form along with a high concentration of sulfate sulfur (SO₃), it supports vigorous early growth, protein synthesis, chlorophyll formation, and overall crop vitality. The granular form allows uniform application, easy blending with other fertilizers, and precise placement in the root zone, improving efficiency and handling compared to crystalline grades.
                 </p>
               </div>
 
-              <Link href="#" className="inline-block">
+              <Link href="/ck-world/crystal-krop/pre-planting/ams-gr/flyer" className="inline-block">
                 <Button
                   variant="outline"
                   className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 hover:text-orange-700 px-8 py-6 text-base font-semibold"

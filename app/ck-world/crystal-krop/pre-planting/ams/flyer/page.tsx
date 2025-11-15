@@ -7,13 +7,23 @@ import Image from "next/image"
 
 export default function AMSFlyerPage() {
   const handleDownload = () => {
-    // Create a temporary link to download the image
-    const link = document.createElement('a')
-    link.href = '/images/ams-flyer-1.jpg'
-    link.download = 'CK-Crystal-Krop-AMS-Flyer.jpg'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    // Download page 1
+    const link1 = document.createElement('a')
+    link1.href = '/images/ams-flyer-1.jpg'
+    link1.download = 'CK-Crystal-Krop-AMS-Flyer-Page-1.jpg'
+    document.body.appendChild(link1)
+    link1.click()
+    document.body.removeChild(link1)
+
+    // Download page 2 after a short delay
+    setTimeout(() => {
+      const link2 = document.createElement('a')
+      link2.href = '/images/ams-flyer-2.jpg'
+      link2.download = 'CK-Crystal-Krop-AMS-Flyer-Page-2.jpg'
+      document.body.appendChild(link2)
+      link2.click()
+      document.body.removeChild(link2)
+    }, 100)
   }
 
   return (
