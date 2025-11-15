@@ -8,15 +8,24 @@ import { useState, useRef, useEffect } from "react"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu"
 import { CKWorldMegaMenu } from "@/components/ck-world-mega-menu"
 import { productLines } from "@/data/product-lines"
-import { ArrowRight, ChevronDown, Search } from 'lucide-react'
+import { ArrowRight, ChevronDown, Search, X } from 'lucide-react'
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [ckStoryOpen, setCkStoryOpen] = useState(false)
   const [ckStoryMobileOpen, setCkStoryMobileOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
+  const searchInputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
   const closeTimeoutRef = useRef<NodeJS.Timeout>()
+
+  useEffect(() => {
+    if (searchOpen && searchInputRef.current) {
+      searchInputRef.current.focus()
+    }
+  }, [searchOpen])
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -77,6 +86,14 @@ export function Navigation() {
     }, 150)
   }
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      console.log("[v0] Searching for:", searchQuery)
+      window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`
+    }
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
       <div className="mx-auto max-w-[96rem] px-6 flex h-40 items-center justify-between">
@@ -95,7 +112,46 @@ export function Navigation() {
         </Link>
 
         <div className="hidden lg:flex flex-col items-end gap-2">
-          <Search className="h-5 w-5 text-orange-500 mr-6" />
+          <div className="relative mr-6">
+            <button
+              onClick={() => setSearchOpen(!searchOpen)}
+              className="flex items-center gap-2 text-orange-500 hover:text-orange-600 transition-colors"
+              aria-label="Toggle search"
+            >
+              <span className="text-sm font-medium">Search</span>
+              <Search className="h-5 w-5" />
+            </button>
+            
+            {searchOpen && (
+              <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 p-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                <form onSubmit={handleSearch} className="flex gap-2">
+                  <input
+                    ref={searchInputRef}
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search products, articles..."
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
+                  />
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors text-sm font-medium"
+                  >
+                    Go
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSearchOpen(false)}
+                    className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
+                    aria-label="Close search"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                </form>
+              </div>
+            )}
+          </div>
+
           <nav className="flex items-center gap-8">
             <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
               Home
@@ -282,7 +338,36 @@ export function Navigation() {
             </Link>
 
             <div className="flex flex-col items-start gap-3">
-              <Search className="h-5 w-5 text-orange-500 ml-6" />
+              <button
+                onClick={() => setSearchOpen(!searchOpen)}
+                className="flex items-center gap-2 text-orange-500 hover:text-orange-600 transition-colors ml-6"
+                aria-label="Toggle search"
+              >
+                <span className="text-sm font-medium">Search</span>
+                <Search className="h-5 w-5" />
+              </button>
+              
+              {searchOpen && (
+                <div className="w-full px-6">
+                  <form onSubmit={handleSearch} className="flex gap-2">
+                    <input
+                      ref={searchInputRef}
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search products, articles..."
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
+                    />
+                    <button
+                      type="submit"
+                      className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors text-sm font-medium"
+                    >
+                      Go
+                    </button>
+                  </form>
+                </div>
+              )}
+
               <Link
                 href="/verify-your-product"
                 className="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 px-6 py-2.5 rounded transition-colors flex items-center gap-2"
