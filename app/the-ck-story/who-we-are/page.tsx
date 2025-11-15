@@ -14,7 +14,7 @@ export default function WhoWeArePage() {
       </section>
 
       {/* Introduction */}
-      <section className="py-16">
+      <section className="pt-16 pb-8">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <p className="text-lg leading-relaxed text-gray-700 mb-6">
@@ -39,7 +39,7 @@ export default function WhoWeArePage() {
       </section>
 
       {/* Origin Section */}
-      <section className="pt-4 pb-16 bg-white">
+      <section className="pt-0 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
