@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, Upload, X, FileText } from 'lucide-react'
 import Link from "next/link"
 
 export default function LetsConnectPage() {
@@ -13,6 +13,15 @@ export default function LetsConnectPage() {
     email: "",
     phone: "",
     company: "",
+    message: ""
+  })
+
+  const [cvFile, setCvFile] = useState<File | null>(null)
+  const [cvFormData, setCvFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    position: "",
     message: ""
   })
 
@@ -27,6 +36,40 @@ export default function LetsConnectPage() {
       ...prev,
       [e.target.name]: e.target.value
     }))
+  }
+
+  const handleCvFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setCvFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }))
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0]
+      // Validate file type (PDF, DOC, DOCX)
+      const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
+      if (validTypes.includes(file.type)) {
+        setCvFile(file)
+      } else {
+        alert('Please upload a PDF or Word document')
+      }
+    }
+  }
+
+  const handleRemoveFile = () => {
+    setCvFile(null)
+  }
+
+  const handleCvSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!cvFile) {
+      alert('Please upload your CV')
+      return
+    }
+    // CV form submission logic here
+    console.log("CV Form submitted:", cvFormData, cvFile)
   }
 
   return (
@@ -234,6 +277,167 @@ export default function LetsConnectPage() {
                 </p>
               </form>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CV Upload Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              CV Upload (For Employment or Representative Requests)
+            </h2>
+            <p className="text-lg text-gray-600">
+              Interested in joining our team or becoming a representative? Upload your CV and we'll get back to you.
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-emerald-50 to-white rounded-xl p-8 shadow-lg border border-emerald-200">
+            <form onSubmit={handleCvSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="cv-name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <Input
+                    id="cv-name"
+                    name="name"
+                    type="text"
+                    required
+                    value={cvFormData.name}
+                    onChange={handleCvFormChange}
+                    placeholder="Enter your full name"
+                    className="w-full"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="cv-email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address *
+                  </label>
+                  <Input
+                    id="cv-email"
+                    name="email"
+                    type="email"
+                    required
+                    value={cvFormData.email}
+                    onChange={handleCvFormChange}
+                    placeholder="your.email@example.com"
+                    className="w-full"
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="cv-phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone Number *
+                  </label>
+                  <Input
+                    id="cv-phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    value={cvFormData.phone}
+                    onChange={handleCvFormChange}
+                    placeholder="+34 XXX XXX XXX"
+                    className="w-full"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="cv-position" className="block text-sm font-medium text-gray-700 mb-2">
+                    Position / Interest *
+                  </label>
+                  <Input
+                    id="cv-position"
+                    name="position"
+                    type="text"
+                    required
+                    value={cvFormData.position}
+                    onChange={handleCvFormChange}
+                    placeholder="e.g., Sales Representative, Lab Technician"
+                    className="w-full"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="cv-message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Cover Letter / Additional Information
+                </label>
+                <Textarea
+                  id="cv-message"
+                  name="message"
+                  value={cvFormData.message}
+                  onChange={handleCvFormChange}
+                  placeholder="Tell us about yourself and why you'd like to work with CK®..."
+                  rows={4}
+                  className="w-full resize-none"
+                />
+              </div>
+
+              {/* File Upload Area */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Upload Your CV *
+                </label>
+                <div className="border-2 border-dashed border-emerald-300 rounded-lg p-6 bg-white hover:border-emerald-500 transition-colors">
+                  {!cvFile ? (
+                    <div className="text-center">
+                      <Upload className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
+                      <label htmlFor="cv-file" className="cursor-pointer">
+                        <span className="text-emerald-600 font-semibold hover:text-emerald-700">
+                          Click to upload
+                        </span>
+                        <span className="text-gray-600"> or drag and drop</span>
+                      </label>
+                      <p className="text-sm text-gray-500 mt-2">
+                        PDF, DOC, or DOCX (Max 5MB)
+                      </p>
+                      <Input
+                        id="cv-file"
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        onChange={handleFileChange}
+                        className="hidden"
+                      />
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-between bg-emerald-50 rounded-lg p-4">
+                      <div className="flex items-center gap-3">
+                        <FileText className="w-8 h-8 text-emerald-600" />
+                        <div>
+                          <p className="font-medium text-gray-900">{cvFile.name}</p>
+                          <p className="text-sm text-gray-500">
+                            {(cvFile.size / 1024 / 1024).toFixed(2)} MB
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleRemoveFile}
+                        className="text-gray-400 hover:text-red-600 transition-colors"
+                      >
+                        <X className="w-6 h-6" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-6 text-lg rounded-lg transition-colors"
+              >
+                Submit Application
+              </Button>
+
+              <p className="text-sm text-gray-500 text-center">
+                By submitting this form, you agree to our privacy policy. We'll review your application and contact you soon.
+              </p>
+            </form>
           </div>
         </div>
       </section>
