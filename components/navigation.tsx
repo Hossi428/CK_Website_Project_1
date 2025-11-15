@@ -8,14 +8,14 @@ import { useState, useRef, useEffect } from "react"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu"
 import { CKWorldMegaMenu } from "@/components/ck-world-mega-menu"
 import { productLines } from "@/data/product-lines"
-import { ArrowRight, ChevronDown } from "lucide-react"
+import { ArrowRight, ChevronDown } from 'lucide-react'
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [ckStoryOpen, setCkStoryOpen] = useState(false)
   const [ckStoryMobileOpen, setCkStoryMobileOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
-  const triggerRef = useRef<HTMLAnchorElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
   const closeTimeoutRef = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
@@ -108,17 +108,16 @@ export function Navigation() {
           </NavigationMenu>
 
           <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <Link
+            <button
               ref={triggerRef}
-              href="/the-ck-story"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1 cursor-default"
               aria-expanded={ckStoryOpen}
               aria-controls="ck-story-menu"
               aria-haspopup="true"
             >
               The CK Story
               <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${ckStoryOpen ? "rotate-180" : ""}`} />
-            </Link>
+            </button>
 
             {ckStoryOpen && (
               <div
@@ -128,6 +127,14 @@ export function Navigation() {
                 className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur rounded-xl shadow-lg border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200"
                 onKeyDown={handleMenuKeyDown}
               >
+                <Link
+                  href="/the-ck-story/who-we-are"
+                  role="menuitem"
+                  className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                  tabIndex={0}
+                >
+                  Who We Are
+                </Link>
                 <Link
                   href="/the-ck-story/about-ck"
                   role="menuitem"
@@ -233,11 +240,11 @@ export function Navigation() {
               {ckStoryMobileOpen && (
                 <div className="pl-4 flex flex-col gap-2 mt-2">
                   <Link
-                    href="/the-ck-story"
+                    href="/the-ck-story/who-we-are"
                     className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    Overview
+                    Who We Are
                   </Link>
                   <Link
                     href="/the-ck-story/about-ck"

@@ -22,7 +22,7 @@ export default function AboutCKPage() {
         <div className="container mx-auto px-8 lg:px-16 max-w-7xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Who We Are</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">At a Glance</h2>
               <p className="text-gray-700 mb-4">
                 CK® - Complete Krop is a proud division of <strong>Nevian Fertilizantes S.L.</strong>, a company with over 18 years of
                 excellence in fertilizer manufacturing and agronomic innovation, headquartered in Puente, Granada,
