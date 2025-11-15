@@ -124,7 +124,7 @@ export default function CKWorldPage() {
             {productLines.slice(0, 3).map((line) => (
               <Card
                 key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full flex flex-col`}
+                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full flex flex-col aspect-square`}
               >
                 <CardHeader>
                   {line.icon && (
@@ -169,11 +169,12 @@ export default function CKWorldPage() {
             ))}
           </div>
 
+          {/* Second row - 2 boxes */}
           <div className="flex justify-center gap-8 flex-wrap">
             {productLines.slice(3, 5).map((line) => (
               <Card
                 key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] flex flex-col`}
+                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] flex flex-col aspect-square`}
               >
                 <CardHeader>
                   {line.icon && (
@@ -227,12 +228,6 @@ export default function CKWorldPage() {
           </p>
         </div>
       </main>
-
-      <footer className="border-t bg-gray-50 py-12 mt-20">
-        <div className="container text-center text-sm text-muted-foreground">
-          <p>© 2025 CK® - Complete Krop. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   )
 }
