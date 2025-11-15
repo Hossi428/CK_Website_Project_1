@@ -49,7 +49,7 @@ export default function AMNProductPage() {
               </div>
 
               {/* Download Flyer Button */}
-              <Link href="#" className="inline-block">
+              <Link href="/ck-world/crystal-krop/pre-planting/amn/flyer" className="inline-block">
                 <Button
                   variant="outline"
                   className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 hover:text-orange-700 px-8 py-6 text-base font-semibold"
