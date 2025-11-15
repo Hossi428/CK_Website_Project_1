@@ -22,7 +22,7 @@ export default function AMNProductPage() {
           <div className="lg:col-span-2 space-y-8">
             {/* Family Introduction */}
             <section>
-              <h2 className="text-sm font-semibold text-emerald-600 mb-2">¢ Pre-planting Family</h2>
+              <h2 className="text-sm font-semibold text-emerald-600 mb-2">■ Pre-planting Family</h2>
               <p className="text-muted-foreground leading-relaxed">
                 The Pre-planting Family brings together essential base fertilizers that secure a strong nutritional
                 foundation for crops right from the start. This group of products deliver key macronutrients like
