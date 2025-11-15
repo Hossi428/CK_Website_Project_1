@@ -1,4 +1,5 @@
 import { HeroCarousel } from "@/components/hero-carousel"
+import { OrchardGallery } from "@/components/orchard-gallery"
 import { KnowledgeHubSection } from "@/components/knowledge-hub-section"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -45,6 +46,9 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* Orchard Gallery Section */}
+        <OrchardGallery />
 
         {/* Features Section */}
         <section className="py-20 border-t">

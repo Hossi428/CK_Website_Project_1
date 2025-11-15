@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { Target, Users, Leaf, BookOpen, Lightbulb } from "lucide-react"
+import { Target, Users, Leaf, BookOpen, Lightbulb } from 'lucide-react'
 
 export default function MissionValuesPage() {
   return (
@@ -26,7 +26,7 @@ export default function MissionValuesPage() {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-20">
+      <section className="pt-20 pb-8">
         <div className="container mx-auto px-8 lg:px-16 max-w-7xl">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 pb-4 border-b-2 border-emerald-200">Our Mission</h2>
@@ -42,7 +42,7 @@ export default function MissionValuesPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-white">
+      <section className="pt-0 pb-20 bg-white">
         <div className="container mx-auto px-8 lg:px-16 max-w-7xl">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Our Core Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
