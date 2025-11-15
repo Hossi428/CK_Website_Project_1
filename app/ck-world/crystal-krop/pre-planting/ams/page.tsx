@@ -35,13 +35,11 @@ export default function AMSProductPage() {
 
               <div className="bg-yellow-200 p-6 rounded-lg">
                 <p className="text-foreground leading-relaxed">
-                  <strong>CK® Crystal Krop ™ AMS</strong> (Ammonium Sulfate) is a dual-action fertilizer providing both
-                  nitrogen and sulfur. It is ideal for sulfur-deficient soils and crops requiring strong protein
-                  synthesis and chlorophyll production for enhanced growth and quality.
+                  <strong>CK® Crystal Krop™ AMS</strong> is a high-purity crystalline ammonium sulfate formulated for fertigation and soil application. Delivering nitrogen entirely in the ammoniacal form together with readily available sulfate sulfur (SO₃ equivalent), it supports vigorous early growth, protein synthesis, and efficient chlorophyll formation. Its high solubility and gentle acidifying effect help improve nutrient availability in neutral-alkaline soils and maintain clean irrigation systems.
                 </p>
               </div>
 
-              <Link href="#" className="inline-block">
+              <Link href="/ck-world/crystal-krop/pre-planting/ams/flyer" className="inline-block">
                 <Button
                   variant="outline"
                   className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 hover:text-orange-700 px-8 py-6 text-base font-semibold"

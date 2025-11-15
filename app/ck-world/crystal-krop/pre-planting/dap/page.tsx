@@ -35,13 +35,11 @@ export default function DAPProductPage() {
 
               <div className="bg-yellow-200 p-6 rounded-lg">
                 <p className="text-foreground leading-relaxed">
-                  <strong>CK® Crystal Krop ™ DAP</strong> (Diammonium Phosphate) is a premium phosphorus and nitrogen
-                  fertilizer designed for pre-planting application. It provides rapid nutrient availability to promote
-                  vigorous root systems, early plant establishment, and enhanced crop productivity.
+                  <strong>CK® Crystal Krop™ DAP</strong> is a high-quality granular fertilizer designed for soil application, delivering a concentrated source of nitrogen and phosphorus in a readily available form. With nitrogen (as ammoniacal N) and phosphorus pentoxide (fully water-soluble), it ensures rapid nutrient uptake, robust root establishment, and vigorous early vegetative growth. Its balanced formulation provides both immediate and gradual nutrient release, supporting consistent plant development throughout the season. The homogenous granules allow even application and excellent blending with other granular fertilizers, making it a versatile and efficient choice for modern crop nutrition.
                 </p>
               </div>
 
-              <Link href="#" className="inline-block">
+              <Link href="/ck-world/crystal-krop/pre-planting/dap/flyer" className="inline-block">
                 <Button
                   variant="outline"
                   className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 hover:text-orange-700 px-8 py-6 text-base font-semibold"
