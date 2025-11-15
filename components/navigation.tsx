@@ -16,6 +16,7 @@ export function Navigation() {
   const [ckStoryMobileOpen, setCkStoryMobileOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
+  const [currentLanguage, setCurrentLanguage] = useState<"EN" | "ES">("EN")
   const searchInputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
@@ -112,44 +113,70 @@ export function Navigation() {
         </Link>
 
         <div className="hidden lg:flex flex-col items-end gap-2">
-          <div className="relative mr-6">
-            <button
-              onClick={() => setSearchOpen(!searchOpen)}
-              className="flex items-center gap-2 text-orange-500 hover:text-orange-600 transition-colors"
-              aria-label="Toggle search"
-            >
-              <span className="text-sm font-medium">Search</span>
-              <Search className="h-5 w-5" />
-            </button>
-            
-            {searchOpen && (
-              <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 p-4 animate-in fade-in slide-in-from-top-2 duration-200">
-                <form onSubmit={handleSearch} className="flex gap-2">
-                  <input
-                    ref={searchInputRef}
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search products, articles..."
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-                  />
-                  <button
-                    type="submit"
-                    className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors text-sm font-medium"
-                  >
-                    Go
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setSearchOpen(false)}
-                    className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
-                    aria-label="Close search"
-                  >
-                    <X className="h-4 w-4" />
-                  </button>
-                </form>
-              </div>
-            )}
+          <div className="flex items-center gap-6 mr-6">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setCurrentLanguage("EN")}
+                className={`text-sm font-medium transition-colors ${
+                  currentLanguage === "EN" 
+                    ? "text-emerald-600" 
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-gray-400">/</span>
+              <button
+                onClick={() => setCurrentLanguage("ES")}
+                className={`text-sm font-medium transition-colors ${
+                  currentLanguage === "ES" 
+                    ? "text-emerald-600" 
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                ES
+              </button>
+            </div>
+
+            <div className="relative">
+              <button
+                onClick={() => setSearchOpen(!searchOpen)}
+                className="flex items-center gap-2 text-orange-500 hover:text-orange-600 transition-colors"
+                aria-label="Toggle search"
+              >
+                <span className="text-sm font-medium">Search</span>
+                <Search className="h-5 w-5" />
+              </button>
+              
+              {searchOpen && (
+                <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 p-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <form onSubmit={handleSearch} className="flex gap-2">
+                    <input
+                      ref={searchInputRef}
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search products, articles..."
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
+                    />
+                    <button
+                      type="submit"
+                      className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors text-sm font-medium"
+                    >
+                      Go
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSearchOpen(false)}
+                      className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
+                      aria-label="Close search"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  </form>
+                </div>
+              )}
+            </div>
           </div>
 
           <nav className="flex items-center gap-8">
@@ -338,6 +365,30 @@ export function Navigation() {
             </Link>
 
             <div className="flex flex-col items-start gap-3">
+              <div className="flex items-center gap-2 ml-6">
+                <button
+                  onClick={() => setCurrentLanguage("EN")}
+                  className={`text-sm font-medium transition-colors ${
+                    currentLanguage === "EN" 
+                      ? "text-emerald-600" 
+                      : "text-gray-500 hover:text-gray-700"
+                  }`}
+                >
+                  EN
+                </button>
+                <span className="text-gray-400">/</span>
+                <button
+                  onClick={() => setCurrentLanguage("ES")}
+                  className={`text-sm font-medium transition-colors ${
+                    currentLanguage === "ES" 
+                      ? "text-emerald-600" 
+                      : "text-gray-500 hover:text-gray-700"
+                  }`}
+                >
+                  ES
+                </button>
+              </div>
+
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
                 className="flex items-center gap-2 text-orange-500 hover:text-orange-600 transition-colors ml-6"
