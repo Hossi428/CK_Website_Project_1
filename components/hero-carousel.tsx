@@ -2,14 +2,19 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const images = [
   "/modern-agricultural-field-with-vibrant-crops-and-b.jpg",
+  "/images/orchards/grape-vineyard-hero.jpg", // New: Grape Vineyards
   "/hero-agricultural-landscape.jpg",
+  "/images/orchards/citrus-orchard-hero.jpg", // New: Citrus Orchards
   "/hero-wheat-field-real.jpg",
+  "/images/orchards/apple-orchard-hero.jpg", // New: Apple Orchards
   "/hero-greenhouse-technology.jpg",
+  "/images/orchards/olive-orchard-hero.jpg", // New: Olive Orchards
   "/hero-farmer-inspection.jpg",
+  "/images/orchards/pistachio-orchard-hero.jpg", // New: Pistachio Orchards
 ]
 
 export function HeroCarousel() {

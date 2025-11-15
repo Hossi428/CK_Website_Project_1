@@ -1,9 +1,9 @@
 import { HeroCarousel } from "@/components/hero-carousel"
-import { OrchardGallery } from "@/components/orchard-gallery"
 import { KnowledgeHubSection } from "@/components/knowledge-hub-section"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Leaf, Sprout, Shield } from 'lucide-react'
+import { OrchardGallery } from "@/components/orchard-gallery"
 
 export default function HomePage() {
   return (
@@ -47,7 +47,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Orchard Gallery Section */}
+        {/* Top Cash-Crop Orchards Gallery Section */}
         <OrchardGallery />
 
         {/* Features Section */}
