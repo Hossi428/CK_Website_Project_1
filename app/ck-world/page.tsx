@@ -118,12 +118,14 @@ export default function CKWorldPage() {
         <Separator className="mb-16" />
 
         {/* Product Lines Grid */}
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
             {productLines.map((line, index) => (
               <Card
                 key={line.id}
-                className={`w-full transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group flex flex-col h-full`}
+                className={`w-full max-w-sm transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group flex flex-col h-full ${
+                  index === 3 ? 'lg:col-start-2' : ''
+                }`}
               >
                 <CardHeader className="flex-shrink-0">
                   {line.icon && (
@@ -166,7 +168,6 @@ export default function CKWorldPage() {
                 </CardContent>
               </Card>
             ))}
-            <div className="hidden lg:block lg:col-start-1" aria-hidden="true"></div>
           </div>
         </div>
 
