@@ -94,96 +94,96 @@ export function Navigation() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
-          <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-            Home
-          </Link>
+        <div className="hidden lg:flex flex-col items-end gap-2">
+          <Search className="h-5 w-5 text-orange-500 mr-6" />
+          <nav className="flex items-center gap-8">
+            <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+              Home
+            </Link>
 
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <CKWorldMegaMenu />
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <CKWorldMegaMenu />
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
 
-          <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <button
-              ref={triggerRef}
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1 cursor-default"
-              aria-expanded={ckStoryOpen}
-              aria-controls="ck-story-menu"
-              aria-haspopup="true"
-            >
-              The CK Story
-              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${ckStoryOpen ? "rotate-180" : ""}`} />
-            </button>
-
-            {ckStoryOpen && (
-              <div
-                id="ck-story-menu"
-                ref={dropdownRef}
-                role="menu"
-                className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur rounded-xl shadow-lg border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200"
-                onKeyDown={handleMenuKeyDown}
+            <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <button
+                ref={triggerRef}
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1 cursor-default"
+                aria-expanded={ckStoryOpen}
+                aria-controls="ck-story-menu"
+                aria-haspopup="true"
               >
-                <Link
-                  href="/the-ck-story/who-we-are"
-                  role="menuitem"
-                  className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
-                  tabIndex={0}
-                >
-                  Who We Are
-                </Link>
-                <Link
-                  href="/the-ck-story/about-ck"
-                  role="menuitem"
-                  className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
-                  tabIndex={0}
-                >
-                  About CK
-                </Link>
-                <Link
-                  href="/the-ck-story/mission-values"
-                  role="menuitem"
-                  className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
-                  tabIndex={0}
-                >
-                  Our Mission & Values
-                </Link>
-                <Link
-                  href="/the-ck-story/work-with-us"
-                  role="menuitem"
-                  className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
-                  tabIndex={0}
-                >
-                  Work With Us
-                </Link>
-              </div>
-            )}
-          </div>
+                The CK Story
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${ckStoryOpen ? "rotate-180" : ""}`} />
+              </button>
 
-          <Link
-            href="/our-applied-science"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            Our Applied Science
-          </Link>
-          <Link
-            href="/ck-knowledge-hub"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            CK Knowledge Hub
-          </Link>
-          <Link
-            href="/lets-connect"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            Let's Connect
-          </Link>
+              {ckStoryOpen && (
+                <div
+                  id="ck-story-menu"
+                  ref={dropdownRef}
+                  role="menu"
+                  className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur rounded-xl shadow-lg border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200"
+                  onKeyDown={handleMenuKeyDown}
+                >
+                  <Link
+                    href="/the-ck-story/who-we-are"
+                    role="menuitem"
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                    tabIndex={0}
+                  >
+                    Who We Are
+                  </Link>
+                  <Link
+                    href="/the-ck-story/about-ck"
+                    role="menuitem"
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                    tabIndex={0}
+                  >
+                    About CK
+                  </Link>
+                  <Link
+                    href="/the-ck-story/mission-values"
+                    role="menuitem"
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                    tabIndex={0}
+                  >
+                    Our Mission & Values
+                  </Link>
+                  <Link
+                    href="/the-ck-story/work-with-us"
+                    role="menuitem"
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                    tabIndex={0}
+                  >
+                    Work With Us
+                  </Link>
+                </div>
+              )}
+            </div>
 
-          <div className="flex flex-col items-center gap-1">
-            <Search className="h-5 w-5 text-orange-500" />
+            <Link
+              href="/our-applied-science"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Our Applied Science
+            </Link>
+            <Link
+              href="/ck-knowledge-hub"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              CK Knowledge Hub
+            </Link>
+            <Link
+              href="/lets-connect"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Let's Connect
+            </Link>
+
             <Link
               href="/verify-your-product"
               className="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 px-6 py-2.5 rounded transition-colors flex items-center gap-2"
@@ -191,8 +191,8 @@ export function Navigation() {
               Verify Your Product
               <ArrowRight className="h-4 w-4" />
             </Link>
-          </div>
-        </nav>
+          </nav>
+        </div>
 
         <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
           <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -281,7 +281,7 @@ export function Navigation() {
               Let's Connect
             </Link>
 
-            <div className="flex flex-col items-start gap-1">
+            <div className="flex flex-col items-start gap-3">
               <Search className="h-5 w-5 text-orange-500 ml-6" />
               <Link
                 href="/verify-your-product"
