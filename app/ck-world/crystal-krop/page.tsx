@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft } from 'lucide-react'
 import Link from "next/link"
 
 const families = [
@@ -167,13 +167,17 @@ export default function CrystalKropPage() {
                     <h3 className="text-lg font-semibold text-foreground">Products in this family:</h3>
                     <div className="flex flex-wrap gap-2">
                       {family.products.map((product, index) => (
-                        <Badge
+                        <Link
                           key={index}
-                          variant="secondary"
-                          className="text-sm px-4 py-2 bg-emerald-100 hover:bg-emerald-200 text-emerald-800"
+                          href={`/ck-world/crystal-krop/${family.id}/${product.toLowerCase().replace(/\s+/g, '-').replace(/™/g, '').replace(/®/g, '')}`}
                         >
-                          {product}
-                        </Badge>
+                          <Badge
+                            variant="secondary"
+                            className="text-sm px-4 py-2 bg-emerald-100 hover:bg-emerald-200 text-emerald-800 cursor-pointer transition-all hover:scale-105"
+                          >
+                            {product}
+                          </Badge>
+                        </Link>
                       ))}
                     </div>
                   </div>

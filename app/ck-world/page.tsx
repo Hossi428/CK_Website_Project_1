@@ -124,7 +124,7 @@ export default function CKWorldPage() {
             {productLines.slice(0, 3).map((line) => (
               <Card
                 key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full flex flex-col aspect-square`}
+                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full aspect-square flex flex-col`}
               >
                 <CardHeader>
                   {line.icon && (
@@ -145,9 +145,9 @@ export default function CKWorldPage() {
                 </CardHeader>
                 <CardContent className="space-y-6 flex-1 flex flex-col justify-between">
                   <div className="space-y-6">
-                    <p className="text-muted-foreground leading-relaxed text-pretty h-[192px]">{line.description}</p>
+                    <p className="text-muted-foreground leading-relaxed text-pretty line-clamp-6">{line.description}</p>
 
-                    <div className="flex items-center justify-between text-sm text-muted-foreground h-[24px]">
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
                       <span>
                         {line.familyCount > 0
                           ? `${line.familyCount} Product ${line.familyCount === 1 ? "Family" : "Families"}`
@@ -174,7 +174,7 @@ export default function CKWorldPage() {
             {productLines.slice(3, 5).map((line) => (
               <Card
                 key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] flex flex-col aspect-square`}
+                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] aspect-square flex flex-col`}
               >
                 <CardHeader>
                   {line.icon && (
@@ -195,9 +195,9 @@ export default function CKWorldPage() {
                 </CardHeader>
                 <CardContent className="space-y-6 flex-1 flex flex-col justify-between">
                   <div className="space-y-6">
-                    <p className="text-muted-foreground leading-relaxed text-pretty h-[192px]">{line.description}</p>
+                    <p className="text-muted-foreground leading-relaxed text-pretty line-clamp-6">{line.description}</p>
 
-                    <div className="flex items-center justify-between text-sm text-muted-foreground h-[24px]">
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
                       <span>
                         {line.familyCount > 0
                           ? `${line.familyCount} Product ${line.familyCount === 1 ? "Family" : "Families"}`
