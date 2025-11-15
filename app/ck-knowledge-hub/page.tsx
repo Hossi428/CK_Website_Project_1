@@ -152,10 +152,10 @@ export default function CKKnowledgeHubPage() {
               </Button>
               <Button
                 size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10 text-lg px-8"
+                className="bg-white text-emerald-900 hover:bg-emerald-50 text-lg px-8"
               >
                 Join Community
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </div>
