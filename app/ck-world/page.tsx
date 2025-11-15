@@ -119,14 +119,13 @@ export default function CKWorldPage() {
 
         {/* Product Lines Grid */}
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
-          {/* First row - 3 boxes */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 mb-8">
-            {productLines.slice(0, 3).map((line) => (
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {productLines.map((line, index) => (
               <Card
                 key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full aspect-square flex flex-col`}
+                className={`w-full transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group flex flex-col h-full`}
               >
-                <CardHeader>
+                <CardHeader className="flex-shrink-0">
                   {line.icon && (
                     <div className="flex justify-center mb-4">
                       <Image
@@ -143,9 +142,9 @@ export default function CKWorldPage() {
                   </CardTitle>
                   <CardDescription className="text-base font-medium">{line.tagline}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-6 flex-1 flex flex-col justify-between">
-                  <div className="space-y-6">
-                    <p className="text-muted-foreground leading-relaxed text-pretty line-clamp-6">{line.description}</p>
+                <CardContent className="flex-1 flex flex-col justify-between">
+                  <div className="space-y-6 flex-1">
+                    <p className="text-muted-foreground leading-relaxed text-pretty">{line.description}</p>
 
                     <div className="flex items-center justify-between text-sm text-muted-foreground">
                       <span>
@@ -156,7 +155,7 @@ export default function CKWorldPage() {
                     </div>
                   </div>
 
-                  <Link href={`/ck-world/${line.id}`} className="block">
+                  <Link href={`/ck-world/${line.id}`} className="block mt-6">
                     <Button
                       className={`w-full ${buttonColors[line.color as keyof typeof buttonColors]} text-white group-hover:gap-3 transition-all`}
                     >
@@ -167,56 +166,7 @@ export default function CKWorldPage() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-
-          {/* Second row - 2 boxes */}
-          <div className="flex justify-center gap-8 flex-wrap">
-            {productLines.slice(3, 5).map((line) => (
-              <Card
-                key={line.id}
-                className={`transition-all duration-300 ${colorClasses[line.color as keyof typeof colorClasses]} border-2 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] aspect-square flex flex-col`}
-              >
-                <CardHeader>
-                  {line.icon && (
-                    <div className="flex justify-center mb-4">
-                      <Image
-                        src={line.icon || "/placeholder.svg"}
-                        alt={`${line.name} icon`}
-                        width={80}
-                        height={80}
-                        className="object-contain"
-                      />
-                    </div>
-                  )}
-                  <CardTitle className={`text-2xl ${colorAccents[line.color as keyof typeof colorAccents]}`}>
-                    {line.name}
-                  </CardTitle>
-                  <CardDescription className="text-base font-medium">{line.tagline}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6 flex-1 flex flex-col justify-between">
-                  <div className="space-y-6">
-                    <p className="text-muted-foreground leading-relaxed text-pretty line-clamp-6">{line.description}</p>
-
-                    <div className="flex items-center justify-between text-sm text-muted-foreground">
-                      <span>
-                        {line.familyCount > 0
-                          ? `${line.familyCount} Product ${line.familyCount === 1 ? "Family" : "Families"}`
-                          : `${line.productCount} Products`}
-                      </span>
-                    </div>
-                  </div>
-
-                  <Link href={`/ck-world/${line.id}`} className="block">
-                    <Button
-                      className={`w-full ${buttonColors[line.color as keyof typeof buttonColors]} text-white group-hover:gap-3 transition-all`}
-                    >
-                      Explore {line.name}
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
+            <div className="hidden lg:block lg:col-start-1" aria-hidden="true"></div>
           </div>
         </div>
 
