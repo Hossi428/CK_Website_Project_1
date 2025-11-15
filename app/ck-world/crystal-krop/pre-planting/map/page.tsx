@@ -35,13 +35,14 @@ export default function MAPProductPage() {
 
               <div className="bg-yellow-200 p-6 rounded-lg">
                 <p className="text-foreground leading-relaxed">
-                  <strong>CK® Crystal Krop ™ MAP</strong> (Monoammonium Phosphate) is a highly concentrated phosphorus
-                  fertilizer that also provides nitrogen. It is ideal for crops requiring rapid root development and
-                  early establishment, ensuring strong vegetative growth and improved stress tolerance.
+                  <strong>CK® Crystal Krop™ MAP</strong> is a high-phosphorus, water-soluble fertilizer formulated to
+                  support early crop growth and robust root development. Its excellent solubility ensures rapid nutrient
+                  availability, making it ideal for enhancing phosphorus uptake and promoting vigorous plant
+                  establishment across various soil types.
                 </p>
               </div>
 
-              <Link href="#" className="inline-block">
+              <Link href="/ck-world/crystal-krop/pre-planting/map/flyer" className="inline-block">
                 <Button
                   variant="outline"
                   className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 hover:text-orange-700 px-8 py-6 text-base font-semibold"
