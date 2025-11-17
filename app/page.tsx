@@ -1,5 +1,6 @@
 import { HeroCarousel } from "@/components/hero-carousel"
 import { KnowledgeHubSection } from "@/components/knowledge-hub-section"
+import { AchievementsSection } from "@/components/achievements-section"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Leaf, Sprout, Shield } from 'lucide-react'
@@ -109,6 +110,8 @@ export default function HomePage() {
 
         {/* CK Knowledge Hub Section */}
         <KnowledgeHubSection />
+
+        <AchievementsSection />
       </main>
     </div>
   )
