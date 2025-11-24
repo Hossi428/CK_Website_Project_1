@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Calendar, ArrowRight, BookOpen, Video, FileText, Users } from "lucide-react"
-import JoinCommunitySection from "@/components/join-community-section"
 
 export const metadata: Metadata = {
   title: "CK Knowledge Hub | Agricultural Resources & Education",
@@ -255,9 +254,6 @@ export default function CKKnowledgeHubPage() {
           </div>
         </div>
       </section>
-
-      {/* Join Community Section */}
-      <JoinCommunitySection />
     </div>
   )
 }
