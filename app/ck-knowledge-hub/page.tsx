@@ -2,11 +2,13 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Calendar, MessageSquare, ArrowRight, BookOpen, Video, FileText, Users } from 'lucide-react'
+import { Calendar, ArrowRight, BookOpen, Video, FileText, Users } from "lucide-react"
+import JoinCommunitySection from "@/components/join-community-section"
 
 export const metadata: Metadata = {
   title: "CK Knowledge Hub | Agricultural Resources & Education",
-  description: "Access comprehensive agricultural resources, research articles, guides, and educational content to enhance your farming practices and crop management skills.",
+  description:
+    "Access comprehensive agricultural resources, research articles, guides, and educational content to enhance your farming practices and crop management skills.",
 }
 
 const categories = [
@@ -138,9 +140,7 @@ export default function CKKnowledgeHubPage() {
         <div className="absolute inset-0 bg-[url('/images/pattern-dots.svg')] opacity-10" />
         <div className="container relative">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-balance">
-              CK Knowledge Hub
-            </h1>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-balance">CK Knowledge Hub</h1>
             <p className="text-xl md:text-2xl text-emerald-100 leading-relaxed max-w-3xl mx-auto text-balance">
               Your comprehensive resource center for agricultural excellence, research insights, and practical farming
               solutions
@@ -150,10 +150,7 @@ export default function CKKnowledgeHubPage() {
                 Browse Articles
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button
-                size="lg"
-                className="bg-white text-emerald-900 hover:bg-emerald-50 text-lg px-8"
-              >
+              <Button size="lg" className="bg-white text-emerald-900 hover:bg-emerald-50 text-lg px-8">
                 Join Community
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -259,7 +256,11 @@ export default function CKKnowledgeHubPage() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 bg-transparent"
+            >
               View All Articles
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -304,7 +305,11 @@ export default function CKKnowledgeHubPage() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 bg-transparent"
+            >
               Browse All Resources
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -335,6 +340,8 @@ export default function CKKnowledgeHubPage() {
           </div>
         </div>
       </section>
+
+      <JoinCommunitySection />
     </div>
   )
 }
