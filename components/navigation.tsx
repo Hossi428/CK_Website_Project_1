@@ -8,19 +8,28 @@ import { useState, useRef, useEffect } from "react"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu"
 import { CKWorldMegaMenu } from "@/components/ck-world-mega-menu"
 import { productLines } from "@/data/product-lines"
-import { ArrowRight, ChevronDown, Search, X } from 'lucide-react'
+import { ArrowRight, ChevronDown, Search, X, Briefcase, Handshake, MessageCircle } from "lucide-react"
+import { LetsConnectModal } from "@/components/lets-connect-modal"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [ckStoryOpen, setCkStoryOpen] = useState(false)
   const [ckStoryMobileOpen, setCkStoryMobileOpen] = useState(false)
+  const [letsConnectOpen, setLetsConnectOpen] = useState(false)
+  const [letsConnectMobileOpen, setLetsConnectMobileOpen] = useState(false)
+  const [letsConnectModalType, setLetsConnectModalType] = useState<"employment" | "representative" | "general" | null>(
+    null,
+  )
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const [currentLanguage, setCurrentLanguage] = useState<"EN" | "ES">("EN")
   const searchInputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
+  const letsConnectDropdownRef = useRef<HTMLDivElement>(null)
+  const letsConnectTriggerRef = useRef<HTMLButtonElement>(null)
   const closeTimeoutRef = useRef<NodeJS.Timeout>()
+  const letsConnectCloseTimeoutRef = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
     if (searchOpen && searchInputRef.current) {
@@ -50,6 +59,9 @@ export function Navigation() {
     return () => {
       if (closeTimeoutRef.current) {
         clearTimeout(closeTimeoutRef.current)
+      }
+      if (letsConnectCloseTimeoutRef.current) {
+        clearTimeout(letsConnectCloseTimeoutRef.current)
       }
     }
   }, [])
@@ -87,6 +99,25 @@ export function Navigation() {
     }, 150)
   }
 
+  const handleLetsConnectMouseEnter = () => {
+    if (letsConnectCloseTimeoutRef.current) {
+      clearTimeout(letsConnectCloseTimeoutRef.current)
+    }
+    setLetsConnectOpen(true)
+  }
+
+  const handleLetsConnectMouseLeave = () => {
+    letsConnectCloseTimeoutRef.current = setTimeout(() => {
+      setLetsConnectOpen(false)
+    }, 150)
+  }
+
+  const handleLetsConnectItemClick = (type: "employment" | "representative" | "general") => {
+    setLetsConnectModalType(type)
+    setLetsConnectOpen(false)
+    setIsOpen(false)
+  }
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     if (searchQuery.trim()) {
@@ -96,282 +127,30 @@ export function Navigation() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
-      <div className="mx-auto max-w-[96rem] px-6 flex h-40 items-center justify-between">
-        <Link href="/" className="flex flex-col items-center gap-2.5 px-6">
-          <Image
-            src="/ck-logo.png"
-            alt="CK - Complete Krop"
-            width={340}
-            height={102}
-            className="h-20 w-auto"
-            priority
-          />
-          <span className="text-sm text-emerald-600 font-medium whitespace-nowrap leading-tight">
-            CK® Your partner in smarter & tailored crop solutions
-          </span>
-        </Link>
+    <>
+      <header className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
+        <div className="mx-auto max-w-[96rem] px-6 flex h-40 items-center justify-between">
+          <Link href="/" className="flex flex-col items-center gap-2.5 px-6">
+            <Image
+              src="/ck-logo.png"
+              alt="CK - Complete Krop"
+              width={340}
+              height={102}
+              className="h-20 w-auto"
+              priority
+            />
+            <span className="text-sm text-emerald-600 font-medium whitespace-nowrap leading-tight">
+              CK® Your partner in smarter & tailored crop solutions
+            </span>
+          </Link>
 
-        <div className="hidden lg:flex flex-col items-end gap-2">
-          <div className="flex items-center gap-6 mr-6">
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setCurrentLanguage("EN")}
-                className={`text-sm font-medium transition-colors ${
-                  currentLanguage === "EN" 
-                    ? "text-emerald-600" 
-                    : "text-gray-500 hover:text-gray-700"
-                }`}
-              >
-                EN
-              </button>
-              <span className="text-gray-400">/</span>
-              <button
-                onClick={() => setCurrentLanguage("ES")}
-                className={`text-sm font-medium transition-colors ${
-                  currentLanguage === "ES" 
-                    ? "text-emerald-600" 
-                    : "text-gray-500 hover:text-gray-700"
-                }`}
-              >
-                ES
-              </button>
-            </div>
-
-            <div className="relative">
-              <button
-                onClick={() => setSearchOpen(!searchOpen)}
-                className="flex items-center gap-2 text-orange-500 hover:text-orange-600 transition-colors"
-                aria-label="Toggle search"
-              >
-                <span className="text-sm font-medium">Search</span>
-                <Search className="h-5 w-5" />
-              </button>
-              
-              {searchOpen && (
-                <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 p-4 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <form onSubmit={handleSearch} className="flex gap-2">
-                    <input
-                      ref={searchInputRef}
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Search products, articles..."
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-                    />
-                    <button
-                      type="submit"
-                      className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors text-sm font-medium"
-                    >
-                      Go
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setSearchOpen(false)}
-                      className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
-                      aria-label="Close search"
-                    >
-                      <X className="h-4 w-4" />
-                    </button>
-                  </form>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <nav className="flex items-center gap-8">
-            <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-              Home
-            </Link>
-
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <CKWorldMegaMenu />
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-
-            <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <button
-                ref={triggerRef}
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1 cursor-default"
-                aria-expanded={ckStoryOpen}
-                aria-controls="ck-story-menu"
-                aria-haspopup="true"
-              >
-                The CK Story
-                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${ckStoryOpen ? "rotate-180" : ""}`} />
-              </button>
-
-              {ckStoryOpen && (
-                <div
-                  id="ck-story-menu"
-                  ref={dropdownRef}
-                  role="menu"
-                  className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur rounded-xl shadow-lg border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200"
-                  onKeyDown={handleMenuKeyDown}
-                >
-                  <Link
-                    href="/the-ck-story/who-we-are"
-                    role="menuitem"
-                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
-                    tabIndex={0}
-                  >
-                    Who We Are
-                  </Link>
-                  <Link
-                    href="/the-ck-story/about-ck"
-                    role="menuitem"
-                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
-                    tabIndex={0}
-                  >
-                    About CK
-                  </Link>
-                  <Link
-                    href="/the-ck-story/mission-values"
-                    role="menuitem"
-                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
-                    tabIndex={0}
-                  >
-                    Our Mission & Values
-                  </Link>
-                  <Link
-                    href="/the-ck-story/work-with-us"
-                    role="menuitem"
-                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
-                    tabIndex={0}
-                  >
-                    Work With Us
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            <Link
-              href="/our-applied-science"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Our Applied Science
-            </Link>
-            <Link
-              href="/ck-knowledge-hub"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              CK Knowledge Hub
-            </Link>
-            <Link
-              href="/lets-connect"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Let's Connect
-            </Link>
-
-            <Link
-              href="/verify-your-product"
-              className="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 px-6 py-2.5 rounded transition-colors flex items-center gap-2"
-            >
-              Verify Your Product
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </nav>
-        </div>
-
-        <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12M6 12h16" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {isOpen && (
-        <div className="lg:hidden border-t bg-white">
-          <nav className="container py-4 flex flex-col gap-4">
-            <Link href="/" className="text-sm font-medium hover:text-emerald-600 transition-colors">
-              Home
-            </Link>
-            <div>
-              <div className="text-sm font-medium mb-2">CK World</div>
-              <div className="pl-4 flex flex-col gap-2">
-                {productLines.map((line) => (
-                  <Link
-                    key={line.name}
-                    href={line.href}
-                    className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
-                  >
-                    {line.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <Link href="/ck-knowledge-hub" className="text-sm font-medium hover:text-emerald-600 transition-colors">
-              CK Knowledge Hub
-            </Link>
-
-            <div>
-              <button
-                onClick={() => setCkStoryMobileOpen(!ckStoryMobileOpen)}
-                className="text-sm font-medium hover:text-emerald-600 transition-colors flex items-center gap-1 w-full text-left"
-                aria-expanded={ckStoryMobileOpen}
-              >
-                The CK Story
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-200 ${ckStoryMobileOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-              {ckStoryMobileOpen && (
-                <div className="pl-4 flex flex-col gap-2 mt-2">
-                  <Link
-                    href="/the-ck-story/who-we-are"
-                    className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Who We Are
-                  </Link>
-                  <Link
-                    href="/the-ck-story/about-ck"
-                    className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    About CK
-                  </Link>
-                  <Link
-                    href="/the-ck-story/mission-values"
-                    className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Our Mission & Values
-                  </Link>
-                  <Link
-                    href="/the-ck-story/work-with-us"
-                    className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Work With Us
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            <Link href="/our-applied-science" className="text-sm font-medium hover:text-emerald-600 transition-colors">
-              Our Applied Science
-            </Link>
-            <Link href="/lets-connect" className="text-sm font-medium hover:text-emerald-600 transition-colors">
-              Let's Connect
-            </Link>
-
-            <div className="flex flex-col items-start gap-3">
-              <div className="flex items-center gap-2 ml-6">
+          <div className="hidden lg:flex flex-col items-end gap-2">
+            <div className="flex items-center gap-6 mr-6">
+              <div className="flex items-center gap-2">
                 <button
                   onClick={() => setCurrentLanguage("EN")}
                   className={`text-sm font-medium transition-colors ${
-                    currentLanguage === "EN" 
-                      ? "text-emerald-600" 
-                      : "text-gray-500 hover:text-gray-700"
+                    currentLanguage === "EN" ? "text-emerald-600" : "text-gray-500 hover:text-gray-700"
                   }`}
                 >
                   EN
@@ -380,44 +159,193 @@ export function Navigation() {
                 <button
                   onClick={() => setCurrentLanguage("ES")}
                   className={`text-sm font-medium transition-colors ${
-                    currentLanguage === "ES" 
-                      ? "text-emerald-600" 
-                      : "text-gray-500 hover:text-gray-700"
+                    currentLanguage === "ES" ? "text-emerald-600" : "text-gray-500 hover:text-gray-700"
                   }`}
                 >
                   ES
                 </button>
               </div>
 
-              <button
-                onClick={() => setSearchOpen(!searchOpen)}
-                className="flex items-center gap-2 text-orange-500 hover:text-orange-600 transition-colors ml-6"
-                aria-label="Toggle search"
-              >
-                <span className="text-sm font-medium">Search</span>
-                <Search className="h-5 w-5" />
-              </button>
-              
-              {searchOpen && (
-                <div className="w-full px-6">
-                  <form onSubmit={handleSearch} className="flex gap-2">
-                    <input
-                      ref={searchInputRef}
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Search products, articles..."
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-                    />
-                    <button
-                      type="submit"
-                      className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors text-sm font-medium"
+              <div className="relative">
+                <button
+                  onClick={() => setSearchOpen(!searchOpen)}
+                  className="flex items-center gap-2 text-orange-500 hover:text-orange-600 transition-colors"
+                  aria-label="Toggle search"
+                >
+                  <span className="text-sm font-medium">Search</span>
+                  <Search className="h-5 w-5" />
+                </button>
+
+                {searchOpen && (
+                  <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 p-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <form onSubmit={handleSearch} className="flex gap-2">
+                      <input
+                        ref={searchInputRef}
+                        type="text"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder="Search products, articles..."
+                        className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
+                      />
+                      <button
+                        type="submit"
+                        className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors text-sm font-medium"
+                      >
+                        Go
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setSearchOpen(false)}
+                        className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
+                        aria-label="Close search"
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                    </form>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <nav className="flex items-center gap-8">
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                Home
+              </Link>
+
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <CKWorldMegaMenu />
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+
+              <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                <button
+                  ref={triggerRef}
+                  className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1 cursor-default"
+                  aria-expanded={ckStoryOpen}
+                  aria-controls="ck-story-menu"
+                  aria-haspopup="true"
+                >
+                  The CK Story
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${ckStoryOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+
+                {ckStoryOpen && (
+                  <div
+                    id="ck-story-menu"
+                    ref={dropdownRef}
+                    role="menu"
+                    className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur rounded-xl shadow-lg border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200"
+                    onKeyDown={handleMenuKeyDown}
+                  >
+                    <Link
+                      href="/the-ck-story/who-we-are"
+                      role="menuitem"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                      tabIndex={0}
                     >
-                      Go
+                      Who We Are
+                    </Link>
+                    <Link
+                      href="/the-ck-story/about-ck"
+                      role="menuitem"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                      tabIndex={0}
+                    >
+                      About CK
+                    </Link>
+                    <Link
+                      href="/the-ck-story/mission-values"
+                      role="menuitem"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                      tabIndex={0}
+                    >
+                      Our Mission & Values
+                    </Link>
+                    <Link
+                      href="/the-ck-story/work-with-us"
+                      role="menuitem"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                      tabIndex={0}
+                    >
+                      Work With Us
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="relative"
+                onMouseEnter={handleLetsConnectMouseEnter}
+                onMouseLeave={handleLetsConnectMouseLeave}
+              >
+                <button
+                  ref={letsConnectTriggerRef}
+                  className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1 cursor-default"
+                  aria-expanded={letsConnectOpen}
+                  aria-controls="lets-connect-menu"
+                  aria-haspopup="true"
+                >
+                  Let's Connect
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${letsConnectOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+
+                {letsConnectOpen && (
+                  <div
+                    id="lets-connect-menu"
+                    ref={letsConnectDropdownRef}
+                    role="menu"
+                    className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur rounded-xl shadow-lg border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200"
+                  >
+                    <button
+                      onClick={() => handleLetsConnectItemClick("employment")}
+                      role="menuitem"
+                      className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none flex items-center gap-2"
+                      tabIndex={0}
+                    >
+                      <Briefcase className="h-4 w-4" />
+                      Employment
                     </button>
-                  </form>
-                </div>
-              )}
+                    <button
+                      onClick={() => handleLetsConnectItemClick("representative")}
+                      role="menuitem"
+                      className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none flex items-center gap-2"
+                      tabIndex={0}
+                    >
+                      <Handshake className="h-4 w-4" />
+                      Representative
+                    </button>
+                    <button
+                      onClick={() => handleLetsConnectItemClick("general")}
+                      role="menuitem"
+                      className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none flex items-center gap-2"
+                      tabIndex={0}
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                      General Inquiry
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              <Link
+                href="/our-applied-science"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                Our Applied Science
+              </Link>
+              <Link
+                href="/ck-knowledge-hub"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                CK Knowledge Hub
+              </Link>
 
               <Link
                 href="/verify-your-product"
@@ -426,10 +354,156 @@ export function Navigation() {
                 Verify Your Product
                 <ArrowRight className="h-4 w-4" />
               </Link>
-            </div>
-          </nav>
+            </nav>
+          </div>
+
+          <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12M6 12h16" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
+
+        {isOpen && (
+          <div className="lg:hidden border-t bg-white">
+            <nav className="container py-4 flex flex-col gap-4">
+              <Link href="/" className="text-sm font-medium hover:text-emerald-600 transition-colors">
+                Home
+              </Link>
+              <div>
+                <div className="text-sm font-medium mb-2">CK World</div>
+                <div className="pl-4 flex flex-col gap-2">
+                  {productLines.map((line) => (
+                    <Link
+                      key={line.name}
+                      href={line.href}
+                      className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
+                    >
+                      {line.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <Link href="/ck-knowledge-hub" className="text-sm font-medium hover:text-emerald-600 transition-colors">
+                CK Knowledge Hub
+              </Link>
+
+              <div>
+                <button
+                  onClick={() => setLetsConnectMobileOpen(!letsConnectMobileOpen)}
+                  className="text-sm font-medium hover:text-emerald-600 transition-colors flex items-center gap-1 w-full text-left"
+                  aria-expanded={letsConnectMobileOpen}
+                >
+                  Let's Connect
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${letsConnectMobileOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {letsConnectMobileOpen && (
+                  <div className="pl-4 flex flex-col gap-2 mt-2">
+                    <button
+                      onClick={() => handleLetsConnectItemClick("employment")}
+                      className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors text-left flex items-center gap-2"
+                    >
+                      <Briefcase className="h-4 w-4" />
+                      Employment
+                    </button>
+                    <button
+                      onClick={() => handleLetsConnectItemClick("representative")}
+                      className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors text-left flex items-center gap-2"
+                    >
+                      <Handshake className="h-4 w-4" />
+                      Representative
+                    </button>
+                    <button
+                      onClick={() => handleLetsConnectItemClick("general")}
+                      className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors text-left flex items-center gap-2"
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                      General Inquiry
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              <Link
+                href="/our-applied-science"
+                className="text-sm font-medium hover:text-emerald-600 transition-colors"
+              >
+                Our Applied Science
+              </Link>
+
+              <div className="flex flex-col items-start gap-3">
+                <div className="flex items-center gap-2 ml-6">
+                  <button
+                    onClick={() => setCurrentLanguage("EN")}
+                    className={`text-sm font-medium transition-colors ${
+                      currentLanguage === "EN" ? "text-emerald-600" : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    EN
+                  </button>
+                  <span className="text-gray-400">/</span>
+                  <button
+                    onClick={() => setCurrentLanguage("ES")}
+                    className={`text-sm font-medium transition-colors ${
+                      currentLanguage === "ES" ? "text-emerald-600" : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    ES
+                  </button>
+                </div>
+
+                <button
+                  onClick={() => setSearchOpen(!searchOpen)}
+                  className="flex items-center gap-2 text-orange-500 hover:text-orange-600 transition-colors ml-6"
+                  aria-label="Toggle search"
+                >
+                  <span className="text-sm font-medium">Search</span>
+                  <Search className="h-5 w-5" />
+                </button>
+
+                {searchOpen && (
+                  <div className="w-full px-6">
+                    <form onSubmit={handleSearch} className="flex gap-2">
+                      <input
+                        ref={searchInputRef}
+                        type="text"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder="Search products, articles..."
+                        className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
+                      />
+                      <button
+                        type="submit"
+                        className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors text-sm font-medium"
+                      >
+                        Go
+                      </button>
+                    </form>
+                  </div>
+                )}
+
+                <Link
+                  href="/verify-your-product"
+                  className="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 px-6 py-2.5 rounded transition-colors flex items-center gap-2"
+                >
+                  Verify Your Product
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </nav>
+          </div>
+        )}
+      </header>
+
+      {letsConnectModalType && (
+        <LetsConnectModal type={letsConnectModalType} onClose={() => setLetsConnectModalType(null)} />
       )}
-    </header>
+    </>
   )
 }
