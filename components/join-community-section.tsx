@@ -1,12 +1,11 @@
 "use client"
 
+import { useState } from "react"
+
 import type React from "react"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { CheckCircle, Users, Zap, Shield, TrendingUp, ArrowRight, Mail } from "lucide-react"
+import { CheckCircle, Users, Zap, Shield, TrendingUp, ArrowRight } from "lucide-react"
 
 export default function JoinCommunitySection() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -102,7 +101,7 @@ export default function JoinCommunitySection() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                 <Button
                   size="lg"
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => (window.location.href = "/join-community")}
                   className="bg-white text-emerald-900 hover:bg-emerald-50 text-lg px-10 py-6 h-auto font-semibold"
                   aria-label="Join the Crop Keeper community"
                 >
@@ -112,6 +111,7 @@ export default function JoinCommunitySection() {
                 <Button
                   size="lg"
                   variant="outline"
+                  onClick={() => (window.location.href = "/join-community")}
                   className="border-2 border-white text-white hover:bg-white/10 text-lg px-10 py-6 h-auto font-semibold bg-transparent"
                   aria-label="Learn more about our community"
                 >
@@ -139,72 +139,6 @@ export default function JoinCommunitySection() {
           </div>
         </div>
       </section>
-
-      {/* Sign-up Modal */}
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="sm:max-w-md">
-          {!isSuccess ? (
-            <>
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-emerald-900">Join Crop Keeper™ Community</DialogTitle>
-                <DialogDescription className="text-base">
-                  Enter your details to become part of our agriculture professionals network
-                </DialogDescription>
-              </DialogHeader>
-              <form onSubmit={handleJoinCommunity} className="space-y-4 pt-4">
-                <div>
-                  <label htmlFor="name" className="text-sm font-medium mb-2 block">
-                    Name (Optional)
-                  </label>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="Your full name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="h-12"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="text-sm font-medium mb-2 block">
-                    Email Address <span className="text-red-500">*</span>
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="your.email@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="h-12"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white h-12 text-base font-semibold"
-                >
-                  <Mail className="mr-2 h-5 w-5" />
-                  Join Community
-                </Button>
-                <p className="text-xs text-muted-foreground text-center">
-                  By joining, you agree to receive updates and insights. Unsubscribe anytime.
-                </p>
-              </form>
-            </>
-          ) : (
-            <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto">
-                <CheckCircle className="h-10 w-10 text-emerald-600" />
-              </div>
-              <DialogTitle className="text-2xl font-bold text-emerald-900">Welcome Aboard!</DialogTitle>
-              <DialogDescription className="text-base">
-                You're now part of the Crop Keeper™ community. Check your inbox for a confirmation email and exclusive
-                resources.
-              </DialogDescription>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
     </>
   )
 }

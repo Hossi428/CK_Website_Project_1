@@ -150,9 +150,11 @@ export default function CKKnowledgeHubPage() {
                 Browse Articles
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" className="bg-white text-emerald-900 hover:bg-emerald-50 text-lg px-8">
-                Join Community
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="bg-white text-emerald-900 hover:bg-emerald-50 text-lg px-8" asChild>
+                <Link href="/join-community">
+                  Join Community
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
             </div>
           </div>
