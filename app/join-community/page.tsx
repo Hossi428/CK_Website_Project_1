@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Join Our Community | Crop Keeper™",
-  description: "Join the Crop Keeper™ community and connect with agriculture professionals worldwide",
+  title: "Join Our Community | Complete Krop",
+  description: "Join the Complete Krop community and connect with agriculture professionals worldwide",
 }
 
 import JoinCommunityClient from "./JoinCommunityClient"

@@ -161,44 +161,6 @@ export default function CKKnowledgeHubPage() {
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Explore Our Resources</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Access a wealth of agricultural knowledge organized by category
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((category) => (
-              <Link
-                key={category.name}
-                href={`/ck-knowledge-hub/${category.name.toLowerCase().replace(/\s+/g, "-")}`}
-                className="group"
-              >
-                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 h-full border-2 border-transparent hover:border-emerald-500">
-                  <div
-                    className={`w-16 h-16 rounded-xl bg-${category.color}-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
-                  >
-                    <category.icon className={`h-8 w-8 text-${category.color}-600`} />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-emerald-600 transition-colors">
-                    {category.name}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{category.description}</p>
-                  <div className="flex items-center justify-between pt-4 border-t">
-                    <span className="text-sm font-semibold text-emerald-600">{category.count} items</span>
-                    <ArrowRight className="h-5 w-5 text-emerald-600 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Articles Section */}
       <section className="py-20 bg-white">
         <div className="container">
@@ -343,6 +305,7 @@ export default function CKKnowledgeHubPage() {
         </div>
       </section>
 
+      {/* Join Community Section */}
       <JoinCommunitySection />
     </div>
   )

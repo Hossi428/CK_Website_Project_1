@@ -5,7 +5,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { CheckCircle, Users, Zap, Shield, TrendingUp, ArrowRight, Mail, Globe, BookOpen, Award } from "lucide-react"
+import { CheckCircle, Users, ArrowRight, Mail, Globe, BookOpen, Award } from "lucide-react"
 
 export default function JoinCommunityClient() {
   const [isSuccess, setIsSuccess] = useState(false)
@@ -31,39 +31,6 @@ export default function JoinCommunityClient() {
     })
   }
 
-  const benefits = [
-    {
-      icon: Zap,
-      title: "Exclusive Agricultural Insights",
-      description: "Access cutting-edge research, smart farming techniques, and expert analysis in crop management",
-    },
-    {
-      icon: TrendingUp,
-      title: "Early Access to Innovations",
-      description: "Be the first to discover new tools, guides, and breakthrough solutions for modern agriculture",
-    },
-    {
-      icon: Users,
-      title: "Expert Network Connection",
-      description: "Connect directly with agronomists, researchers, and industry professionals worldwide",
-    },
-    {
-      icon: CheckCircle,
-      title: "Premium Community Benefits",
-      description: "Share field experiences, practical solutions, and proven strategies with fellow growers",
-    },
-    {
-      icon: Shield,
-      title: "Tailored Industry Updates",
-      description: "Receive personalized content based on your crops, region, and specific farming interests",
-    },
-    {
-      icon: BookOpen,
-      title: "Educational Resources",
-      description: "Access exclusive webinars, case studies, and comprehensive guides on modern agriculture",
-    },
-  ]
-
   const stats = [
     { icon: Users, value: "5,000+", label: "Community Members" },
     { icon: Globe, value: "20+", label: "Countries" },
@@ -78,7 +45,7 @@ export default function JoinCommunityClient() {
           <div className="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mx-auto">
             <CheckCircle className="h-14 w-14 text-emerald-600" />
           </div>
-          <h1 className="text-4xl font-bold text-emerald-900">Welcome to Crop Keeper™ Community!</h1>
+          <h1 className="text-4xl font-bold text-emerald-900">Welcome to Complete Krop Community!</h1>
           <p className="text-xl text-gray-600 leading-relaxed">
             Thank you for joining our global network of agriculture professionals. Check your email for confirmation and
             exclusive welcome resources.
@@ -118,7 +85,7 @@ export default function JoinCommunityClient() {
               <span className="text-sm font-semibold text-emerald-100">Join 5,000+ Agriculture Professionals</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-              Become Part of the Crop Keeper™ Community
+              Become Part of the Complete Krop Community
             </h1>
             <p className="text-xl md:text-2xl text-emerald-100 leading-relaxed max-w-3xl mx-auto text-balance">
               Connect with industry experts, access premium resources, and stay ahead in modern agriculture
@@ -140,34 +107,6 @@ export default function JoinCommunityClient() {
                 <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">Why Join Our Community?</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Unlock exclusive benefits and become part of a thriving global network
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-emerald-200 hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="w-14 h-14 rounded-xl bg-emerald-100 flex items-center justify-center mb-4">
-                    <benefit.icon className="h-7 w-7 text-emerald-600" />
-                  </div>
-                  <h3 className="text-xl font-bold text-emerald-900 mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -290,7 +229,7 @@ export default function JoinCommunityClient() {
                 </div>
 
                 <p className="text-xs text-gray-500 text-center pt-2">
-                  By joining, you agree to receive updates and insights from Crop Keeper™. Unsubscribe anytime.
+                  By joining, you agree to receive updates and insights from Complete Krop. Unsubscribe anytime.
                 </p>
               </form>
             </div>

@@ -94,7 +94,7 @@ export default function JoinCommunitySection() {
                 size="lg"
                 onClick={() => (window.location.href = "/join-community")}
                 className="bg-white text-emerald-900 hover:bg-emerald-50 hover:scale-105 text-lg px-12 py-7 h-auto font-bold shadow-xl transition-all duration-300"
-                aria-label="Join the Crop Keeper community and start growing smarter"
+                aria-label="Join the Complete Krop community and start growing smarter"
               >
                 Start Growing Smarter
                 <ArrowRight className="ml-2 h-5 w-5" />
