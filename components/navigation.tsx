@@ -278,6 +278,19 @@ export function Navigation() {
                 )}
               </div>
 
+              <Link
+                href="/our-applied-science"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                Our Applied Science
+              </Link>
+              <Link
+                href="/ck-knowledge-hub"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                CK Knowledge Hub
+              </Link>
+
               <div
                 className="relative"
                 onMouseEnter={handleLetsConnectMouseEnter}
@@ -333,19 +346,6 @@ export function Navigation() {
                   </div>
                 )}
               </div>
-
-              <Link
-                href="/our-applied-science"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                Our Applied Science
-              </Link>
-              <Link
-                href="/ck-knowledge-hub"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                CK Knowledge Hub
-              </Link>
 
               <Link
                 href="/verify-your-product"
@@ -437,6 +437,14 @@ export function Navigation() {
                 Our Applied Science
               </Link>
 
+              <Link
+                href="/verify-your-product"
+                className="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 px-6 py-2.5 rounded transition-colors flex items-center gap-2"
+              >
+                Verify Your Product
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+
               <div className="flex flex-col items-start gap-3">
                 <div className="flex items-center gap-2 ml-6">
                   <button
@@ -487,14 +495,6 @@ export function Navigation() {
                     </form>
                   </div>
                 )}
-
-                <Link
-                  href="/verify-your-product"
-                  className="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 px-6 py-2.5 rounded transition-colors flex items-center gap-2"
-                >
-                  Verify Your Product
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
             </nav>
           </div>
