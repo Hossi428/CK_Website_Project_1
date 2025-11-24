@@ -232,55 +232,6 @@ export default function CKKnowledgeHubPage() {
         </div>
       </section>
 
-      {/* Recent Resources Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Downloadable Resources</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Access practical tools, guides, and calculators for your farming operations
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-4">
-            {recentResources.map((resource, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-center justify-between border border-gray-100"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-emerald-100 flex items-center justify-center">
-                    <FileText className="h-6 w-6 text-emerald-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg">{resource.title}</h3>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">
-                      <span>{resource.type}</span>
-                      <span>•</span>
-                      <span>{resource.size}</span>
-                      <span>•</span>
-                      <span>{resource.downloads} downloads</span>
-                    </div>
-                  </div>
-                </div>
-                <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Download</Button>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 bg-transparent"
-            >
-              Browse All Resources
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Newsletter CTA Section */}
       <section className="py-20 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
         <div className="container">
