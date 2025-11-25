@@ -139,16 +139,11 @@ export default function CKKnowledgeHubClientPage() {
               solutions
             </p>
             <div className="flex flex-wrap gap-4 justify-center pt-6">
-              <Button
-                size="lg"
-                className="bg-white text-emerald-900 hover:bg-emerald-50 text-lg px-8"
-                onClick={() => {
-                  const articlesSection = document.getElementById("featured-articles")
-                  articlesSection?.scrollIntoView({ behavior: "smooth", block: "start" })
-                }}
-              >
-                Browse Articles
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="bg-white text-emerald-900 hover:bg-emerald-50 text-lg px-8" asChild>
+                <Link href="/ck-knowledge-hub/articles">
+                  Browse Articles
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button size="lg" className="bg-white text-emerald-900 hover:bg-emerald-50 text-lg px-8" asChild>
                 <Link href="/join-community">
@@ -224,13 +219,12 @@ export default function CKKnowledgeHubClientPage() {
               size="lg"
               variant="outline"
               className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 bg-transparent"
-              onClick={() => {
-                const articlesSection = document.getElementById("featured-articles")
-                articlesSection?.scrollIntoView({ behavior: "smooth", block: "start" })
-              }}
+              asChild
             >
-              View All Articles
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Link href="/ck-knowledge-hub/articles">
+                View All Articles
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
           </div>
         </div>
