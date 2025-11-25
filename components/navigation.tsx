@@ -9,6 +9,7 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/compon
 import { CKWorldMegaMenu } from "@/components/ck-world-mega-menu"
 import { productLines } from "@/data/product-lines"
 import { ArrowRight, ChevronDown, Search, X, Briefcase, Handshake, MessageCircle, Mail } from "lucide-react"
+import { LetsConnectModal } from "@/components/lets-connect-modal"
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -16,6 +17,7 @@ export function Navigation() {
   const [searchQuery, setSearchQuery] = useState("")
   const [language, setLanguage] = useState<"EN" | "ES">("EN")
   const [letsConnectOpen, setLetsConnectOpen] = useState(false)
+  const [modalType, setModalType] = useState<"employment" | "representative" | "general" | null>(null)
   const searchInputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
@@ -91,6 +93,7 @@ export function Navigation() {
   }
 
   const handleLetsConnectItemClick = (type: "employment" | "representative" | "general") => {
+    setModalType(type)
     setLetsConnectOpen(false)
     setMobileMenuOpen(false)
   }
@@ -444,6 +447,8 @@ export function Navigation() {
           </div>
         )}
       </header>
+
+      {modalType && <LetsConnectModal type={modalType} onClose={() => setModalType(null)} />}
     </>
   )
 }
