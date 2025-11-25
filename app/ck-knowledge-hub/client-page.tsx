@@ -224,6 +224,10 @@ export default function CKKnowledgeHubClientPage() {
               size="lg"
               variant="outline"
               className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 bg-transparent"
+              onClick={() => {
+                const articlesSection = document.getElementById("featured-articles")
+                articlesSection?.scrollIntoView({ behavior: "smooth", block: "start" })
+              }}
             >
               View All Articles
               <ArrowRight className="ml-2 h-5 w-5" />
