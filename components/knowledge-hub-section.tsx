@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, Calendar, MessageSquare, ArrowRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, ArrowRight, Calendar } from "lucide-react"
 
 const articles = [
   {
@@ -91,6 +91,7 @@ export function KnowledgeHubSection() {
             <h2 className="text-4xl md:text-5xl font-light text-white">CK Knowledge Hub</h2>
             <div className="h-px w-20 bg-white/30"></div>
           </div>
+          <p className="text-white/80 text-lg mt-2">Most Recent Articles</p>
         </div>
 
         {/* Articles Carousel */}
@@ -131,15 +132,9 @@ export function KnowledgeHubSection() {
 
                   {/* Article Meta */}
                   <div className="flex items-center justify-between pt-4 border-t">
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4 text-yellow-500" />
-                        {article.date}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <MessageSquare className="h-4 w-4 text-yellow-500" />
-                        No Comments
-                      </span>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Calendar className="h-4 w-4" />
+                      <span>{article.date}</span>
                     </div>
                     <Button size="sm" className="bg-[#6b8e23] hover:bg-[#556b1d] text-white">
                       Read... <ArrowRight className="ml-1 h-3 w-3" />
