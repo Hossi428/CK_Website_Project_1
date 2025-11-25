@@ -72,7 +72,14 @@ export default function ContactUsClient() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Office – Headquarters</h3>
-                  <p className="text-gray-600">29649 Mijas, Málaga, Spain</p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=29649+Mijas+Málaga+Spain"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-600 hover:text-emerald-700 transition-colors hover:underline"
+                  >
+                    29649 Mijas, Málaga, Spain
+                  </a>
                 </div>
               </div>
             </div>
@@ -84,7 +91,14 @@ export default function ContactUsClient() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Factory – Production Facility</h3>
-                  <p className="text-gray-600">18240 Pinos Puente, Granada, Spain</p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=18240+Pinos+Puente+Granada+Spain"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-600 hover:text-emerald-700 transition-colors hover:underline"
+                  >
+                    18240 Pinos Puente, Granada, Spain
+                  </a>
                 </div>
               </div>
             </div>
