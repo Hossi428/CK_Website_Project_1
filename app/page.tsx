@@ -1,11 +1,16 @@
+"use client"
+
+import { useState } from "react"
 import { HeroCarousel } from "@/components/hero-carousel"
 import { KnowledgeHubSection } from "@/components/knowledge-hub-section"
 import { AchievementsSection } from "@/components/achievements-section"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowRight, Leaf, Sprout, Shield } from 'lucide-react'
+import { ArrowRight, Leaf, Sprout, Shield } from "lucide-react"
 
 export default function HomePage() {
+  const [showContactModal, setShowContactModal] = useState(false)
+
   return (
     <div className="min-h-screen">
       <main>
@@ -38,7 +43,7 @@ export default function HomePage() {
                   variant="outline"
                   className="bg-white/10 hover:bg-white/20 text-white border-white text-base px-8 py-6"
                 >
-                  <Link href="/lets-connect" className="flex items-center gap-2">
+                  <Link href="/contact-us" className="flex items-center gap-2">
                     Contact Us <ArrowRight className="h-5 w-5" />
                   </Link>
                 </Button>
@@ -113,6 +118,8 @@ export default function HomePage() {
 
         <AchievementsSection />
       </main>
+
+      {/* {showContactModal && <LetsConnectModal type="contact" onClose={() => setShowContactModal(false)} />} */}
     </div>
   )
 }

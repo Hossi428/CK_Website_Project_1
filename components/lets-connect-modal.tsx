@@ -3,10 +3,10 @@
 import type React from "react"
 
 import { useState } from "react"
-import { X, Upload, Briefcase, Handshake, MessageCircle } from "lucide-react"
+import { X, Upload, Briefcase, Handshake, MessageCircle, Mail } from "lucide-react"
 
 interface LetsConnectModalProps {
-  type: "employment" | "representative" | "general"
+  type: "employment" | "representative" | "general" | "contact"
   onClose: () => void
 }
 
@@ -52,6 +52,8 @@ export function LetsConnectModal({ type, onClose }: LetsConnectModalProps) {
         return "Become a Representative"
       case "general":
         return "General Inquiry"
+      case "contact":
+        return "Contact Us"
     }
   }
 
@@ -63,6 +65,8 @@ export function LetsConnectModal({ type, onClose }: LetsConnectModalProps) {
         return <Handshake className="h-6 w-6" />
       case "general":
         return <MessageCircle className="h-6 w-6" />
+      case "contact":
+        return <Mail className="h-6 w-6" />
     }
   }
 
@@ -334,6 +338,65 @@ export function LetsConnectModal({ type, onClose }: LetsConnectModalProps) {
                         placeholder="john@example.com"
                       />
                     </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Message <span className="text-red-500">*</span>
+                    </label>
+                    <textarea
+                      required
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      rows={6}
+                      className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none"
+                      placeholder="How can we help you? Please provide details about your inquiry..."
+                    />
+                  </div>
+                </>
+              )}
+
+              {/* Contact Us Form */}
+              {type === "contact" && (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Your Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Email <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                    <input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                      placeholder="+1 (555) 000-0000"
+                    />
                   </div>
 
                   <div>

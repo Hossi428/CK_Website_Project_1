@@ -1,13 +1,11 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
+
+import type React from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle, Package, Scan } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CheckCircle, Package, Scan, ArrowRight } from "lucide-react"
 
 export default function VerifyProductPage() {
   const [email, setEmail] = useState("")
@@ -28,9 +26,9 @@ export default function VerifyProductPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-8 lg:px-16 text-center">
-          <img 
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-4uJPX9Vukvaseep0Wl6JrL3krmXWOX.jpg" 
-            alt="Verification Icon" 
+          <img
+            src="/images/image.jpg"
+            alt="Verification Icon"
             className="w-16 h-16 mx-auto mb-6 brightness-200 invert mix-blend-lighten"
           />
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Your Trust, Our Guarantee: Verify Every Package</h1>
@@ -126,66 +124,21 @@ export default function VerifyProductPage() {
           <Card className="max-w-2xl mx-auto shadow-lg">
             <CardHeader className="bg-emerald-50">
               <CardTitle className="text-2xl">Verify Your Product</CardTitle>
-              <CardDescription className="text-base">
+              <p className="text-base text-gray-600 mt-2">
                 Every product comes with a unique code – verify it anytime.
-              </CardDescription>
+              </p>
             </CardHeader>
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-base font-semibold text-gray-700">
-                    Email
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="h-12 text-base"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="code" className="text-base font-semibold text-gray-700">
-                    VERIFICATION CODE
-                  </Label>
-                  <Input
-                    id="code"
-                    type="text"
-                    placeholder="VERIFICATION CODE"
-                    value={verificationCode}
-                    onChange={(e) => setVerificationCode(e.target.value)}
-                    required
-                    className="h-12 text-base"
-                  />
-                </div>
-
-                <div className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg">
-                  <input
-                    type="checkbox"
-                    id="recaptcha"
-                    checked={recaptchaChecked}
-                    onChange={(e) => setRecaptchaChecked(e.target.checked)}
-                    className="w-6 h-6 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500"
-                  />
-                  <label htmlFor="recaptcha" className="text-sm text-gray-700">
-                    I'm not a robot
-                  </label>
-                  <div className="ml-auto">
-                    <img src="/recaptcha.jpg" alt="reCAPTCHA" className="w-10 h-10" />
-                  </div>
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full h-12 text-base bg-emerald-600 hover:bg-emerald-700"
-                  disabled={!recaptchaChecked}
-                >
-                  Submit & Verify
+            <CardContent className="p-8 text-center">
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Click the button below to access our secure verification system where you can verify your product's
+                authenticity using the unique code on your package.
+              </p>
+              <a href="https://ronafm.es/verify-products/" target="_blank" rel="noopener noreferrer">
+                <Button className="h-12 px-8 text-base bg-emerald-600 hover:bg-emerald-700 flex items-center gap-2 mx-auto">
+                  Verify Your Product
+                  <ArrowRight className="h-5 w-5" />
                 </Button>
-              </form>
+              </a>
             </CardContent>
           </Card>
         ) : (
