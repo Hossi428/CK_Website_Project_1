@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
-import Link from "next/link"
 
 export default function LetsConnectPage() {
   const [formData, setFormData] = useState({
@@ -235,21 +234,6 @@ export default function LetsConnectPage() {
               </form>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-emerald-50 py-16">
-        <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Looking for Career Opportunities?</h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Join our team and be part of the agricultural innovation revolution.
-          </p>
-          <Link href="/the-ck-story/work-with-us">
-            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-8 py-6 text-lg rounded-lg">
-              Explore Careers
-            </Button>
-          </Link>
         </div>
       </section>
     </main>
