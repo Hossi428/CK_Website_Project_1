@@ -263,7 +263,7 @@ export function Navigation() {
                       Who We Are
                     </Link>
                     <Link
-                      href="/the-ck-story/about-us"
+                      href="/the-ck-story/about-ck"
                       onClick={() => {
                         setCkStoryOpen(false)
                         setMobileMenuOpen(false)
@@ -439,7 +439,7 @@ export function Navigation() {
                       Who We Are
                     </Link>
                     <Link
-                      href="/the-ck-story/about-us"
+                      href="/the-ck-story/about-ck"
                       onClick={() => {
                         setCkStoryOpen(false)
                         setMobileMenuOpen(false)
