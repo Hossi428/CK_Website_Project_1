@@ -17,14 +17,18 @@ export function Navigation() {
   const [searchQuery, setSearchQuery] = useState("")
   const [language, setLanguage] = useState<"EN" | "ES">("EN")
   const [letsConnectOpen, setLetsConnectOpen] = useState(false)
+  const [ckStoryOpen, setCkStoryOpen] = useState(false)
   const [modalType, setModalType] = useState<"employment" | "representative" | "general" | null>(null)
   const searchInputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
   const letsConnectDropdownRef = useRef<HTMLDivElement>(null)
   const letsConnectTriggerRef = useRef<HTMLButtonElement>(null)
+  const ckStoryDropdownRef = useRef<HTMLDivElement>(null)
+  const ckStoryTriggerRef = useRef<HTMLButtonElement>(null)
   const closeTimeoutRef = useRef<NodeJS.Timeout>()
   const letsConnectCloseTimeoutRef = useRef<NodeJS.Timeout>()
+  const ckStoryCloseTimeoutRef = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
     if (searchOpen && searchInputRef.current) {
@@ -52,6 +56,9 @@ export function Navigation() {
       }
       if (letsConnectCloseTimeoutRef.current) {
         clearTimeout(letsConnectCloseTimeoutRef.current)
+      }
+      if (ckStoryCloseTimeoutRef.current) {
+        clearTimeout(ckStoryCloseTimeoutRef.current)
       }
     }
   }, [])
@@ -96,6 +103,23 @@ export function Navigation() {
     setModalType(type)
     setLetsConnectOpen(false)
     setMobileMenuOpen(false)
+  }
+
+  const handleCkStoryMouseEnter = () => {
+    if (ckStoryCloseTimeoutRef.current) {
+      clearTimeout(ckStoryCloseTimeoutRef.current)
+    }
+    setCkStoryOpen(true)
+  }
+
+  const handleCkStoryMouseLeave = () => {
+    ckStoryCloseTimeoutRef.current = setTimeout(() => {
+      setCkStoryOpen(false)
+    }, 200)
+  }
+
+  const handleCkStoryClick = () => {
+    setCkStoryOpen(!ckStoryOpen)
   }
 
   const handleSearch = (e: React.FormEvent) => {
@@ -199,6 +223,72 @@ export function Navigation() {
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
+
+              <div className="relative">
+                <button
+                  ref={ckStoryTriggerRef}
+                  onClick={handleCkStoryClick}
+                  onMouseEnter={handleCkStoryMouseEnter}
+                  onMouseLeave={handleCkStoryMouseLeave}
+                  className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1 cursor-pointer"
+                  aria-expanded={ckStoryOpen}
+                  aria-controls="ck-story-menu"
+                  aria-haspopup="true"
+                >
+                  The CK Story
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${ckStoryOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+
+                {ckStoryOpen && (
+                  <div
+                    id="ck-story-menu"
+                    ref={ckStoryDropdownRef}
+                    role="menu"
+                    onMouseEnter={handleCkStoryMouseEnter}
+                    onMouseLeave={handleCkStoryMouseLeave}
+                    className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur rounded-xl shadow-lg border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200"
+                  >
+                    <Link
+                      href="/the-ck-story/who-we-are"
+                      onClick={() => {
+                        setCkStoryOpen(false)
+                        setMobileMenuOpen(false)
+                      }}
+                      role="menuitem"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                      tabIndex={0}
+                    >
+                      Who We Are
+                    </Link>
+                    <Link
+                      href="/the-ck-story/about-us"
+                      onClick={() => {
+                        setCkStoryOpen(false)
+                        setMobileMenuOpen(false)
+                      }}
+                      role="menuitem"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                      tabIndex={0}
+                    >
+                      About Us
+                    </Link>
+                    <Link
+                      href="/the-ck-story/mission-values"
+                      onClick={() => {
+                        setCkStoryOpen(false)
+                        setMobileMenuOpen(false)
+                      }}
+                      role="menuitem"
+                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors focus:bg-emerald-50 focus:text-emerald-700 focus:outline-none"
+                      tabIndex={0}
+                    >
+                      Our Mission & Values
+                    </Link>
+                  </div>
+                )}
+              </div>
 
               <Link
                 href="/our-applied-science"
@@ -324,6 +414,54 @@ export function Navigation() {
                   ))}
                 </div>
               </div>
+
+              <div>
+                <button
+                  onClick={() => setCkStoryOpen(!ckStoryOpen)}
+                  className="text-sm font-medium hover:text-emerald-600 transition-colors flex items-center gap-1 w-full text-left"
+                  aria-expanded={ckStoryOpen}
+                >
+                  The CK Story
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${ckStoryOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {ckStoryOpen && (
+                  <div className="pl-4 flex flex-col gap-2 mt-2">
+                    <Link
+                      href="/the-ck-story/who-we-are"
+                      onClick={() => {
+                        setCkStoryOpen(false)
+                        setMobileMenuOpen(false)
+                      }}
+                      className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
+                    >
+                      Who We Are
+                    </Link>
+                    <Link
+                      href="/the-ck-story/about-us"
+                      onClick={() => {
+                        setCkStoryOpen(false)
+                        setMobileMenuOpen(false)
+                      }}
+                      className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
+                    >
+                      About Us
+                    </Link>
+                    <Link
+                      href="/the-ck-story/mission-values"
+                      onClick={() => {
+                        setCkStoryOpen(false)
+                        setMobileMenuOpen(false)
+                      }}
+                      className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
+                    >
+                      Our Mission & Values
+                    </Link>
+                  </div>
+                )}
+              </div>
+
               <Link href="/ck-knowledge-hub" className="text-sm font-medium hover:text-emerald-600 transition-colors">
                 CK Knowledge Hub
               </Link>
@@ -368,7 +506,7 @@ export function Navigation() {
                         setLetsConnectOpen(false)
                         setMobileMenuOpen(false)
                       }}
-                      className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors text-left flex items-center gap-2"
+                      className="text-sm text-muted-foreground hover:text-emerald-600 transition-colors"
                     >
                       <Mail className="h-4 w-4" />
                       Contact Us
